@@ -380,3 +380,11 @@ input:focus {
     color: #fff;
     margin-top: 10px;
 }
+
+.ok {
+    border-color: green;
+}
+
+.error {
+    border-color: red;
+}
