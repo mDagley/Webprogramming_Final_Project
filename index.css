@@ -116,8 +116,9 @@ aside {
 }
 
 .searchbutton {
-    
+    float: right;
     width: 23%;
+    margin-top: 8px;
 }
 
 main {
