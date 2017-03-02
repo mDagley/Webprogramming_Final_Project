@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $("#email").after('<span class="info">Please enter a valid email </span>');
 	$("#email").focus(function(){
         $(this).next("span").remove();
         $("#email").removeClass("ok");
