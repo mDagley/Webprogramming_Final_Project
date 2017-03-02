@@ -1,0 +1,380 @@
+body {
+    
+    font-family: sans-serif;
+    color: #000;
+    
+}
+
+h4 {
+    
+    
+    padding: 0px;
+    margin: 0px;
+    border: 0;
+}
+
+h5 {
+    
+    
+    padding: 0px;
+    margin: 0px;
+    border: 0;
+    font-weight: 100;
+    font-size: 16px;
+    font-style: italic;
+    color: #A9A9A9;
+}
+
+.bannerimage {
+   
+    
+    width: 100%;
+    height: auto;
+}
+
+.synopsis {
+    
+    font-size: 14px;
+}
+
+
+
+a:link, a:visited, a:hover{
+    
+    text-decoration: none;
+}
+
+
+
+nav {
+    
+    
+    width: 100%;
+    background-color: #A9A9A9;
+    
+    
+    
+}
+
+
+
+nav {
+    
+    color: #EFEFEF;
+    
+}
+
+nav a{
+    
+    color: #EFEFEF;
+}
+
+
+
+
+ul {
+    
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li{
+    
+    float: left;
+}
+
+nav li.right{
+    
+    float: right;
+}
+
+nav li a{
+    
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+nav li a:hover{
+    
+    background-color: #FF3B3F;
+}
+
+aside {
+    padding: 1%;
+    float: left;
+    width: 18%;
+    background-color: #CAEBF2;
+    margin: 1% 0% 0% 0%;
+    
+}
+
+.searchbox {
+    width: 75%;
+}
+
+.searchbutton {
+    
+    width: 23%;
+}
+
+main {
+    float: left;
+    margin: 1% 0% 0% 1%;
+    width: 75%;
+    background-color: #fff;
+    padding: 2%;
+    height: 80%;
+    overflow: scroll;
+}
+
+.filter{
+    
+    width: 74%;
+    margin: 10px 0px;
+}
+
+
+
+
+table {
+    border-collapse: collapse;
+}
+
+td{
+    background: #CAEBF2;
+    border-bottom: 5px solid #fff;
+    border-collapse: collapse;
+    border-top: 0px;
+    padding: 5px 10px;
+    text-align: right;
+    vertical-align: top;
+    
+}
+
+td.coverImage{
+    
+    border-right: 10px solid #fff;
+    border-collapse: collapse;
+    border-top: 0px;
+    background-color: #FF3B3F;
+    height: 150px;
+    width: 85px;
+    color: #EFEFEF;
+    text-align: center;
+    font-weight: bold;
+    padding: 0px;
+}
+
+
+
+
+td.coverImage, td.description {
+    
+    border-bottom: 5px solid #fff;
+    border-collapse: collapse;
+    border-top: 0px;
+    vertical-align: top;
+    
+    
+}
+
+td.description {
+    background-color: #FFF;
+    text-align: left;
+}
+
+.book {
+    width: 98%;
+    float: left;
+    margin: 0px 1%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+input[type="text"], input[type="number"], input[type="password"], input[type="tel"]{
+                
+    padding: 4px;
+    margin: 8px 0px;
+    box-sizing: border-box;
+    color: #000;
+    font-size:17px;
+}
+
+input[type="date"] {
+    padding: 4px;
+    margin: 8px 0px;
+    box-sizing: border-box;
+    font-size:17px;
+}
+
+label {
+     color: #A9A9A9;
+    font-size:17px;
+}
+
+
+
+input[type="button"]{
+
+    padding: 8px 0px 6px 0px;
+    font-size: 14px;
+    color: #fff;
+    border-style: none;
+    border: 0px;
+}
+
+.clear {
+    width: 120px;
+    float: right;
+    margin-right: 10px;
+    background-color: #CAEBF2;
+    color: #fff;
+}
+
+.submit{
+    width:120px;
+    float: right;
+    background-color: #FF3B3F;
+    color: #fff;
+    margin-right: 5px;
+}
+
+
+
+select{
+    padding: 4px;
+    margin: 8px 0px;
+    box-sizing: border-box;
+    color: black;
+    font-size:13px;
+ 
+    
+}
+
+.title {
+    text-align: left;
+}
+
+.price, .addButton {
+    background-color: #fff;
+    vertical-align: middle;
+}
+
+.add {
+    width: 110%;
+    
+    
+}
+
+.addButton {
+    padding 0px;
+    margin 0px;
+    width: 100px;
+    
+}
+
+
+
+.bookcover {
+    
+    height: 150px;
+    width: 100px;
+}
+
+.date {
+    
+    text-align: left;
+}
+
+#registrationForm {
+    width: 715px;;
+    margin: 0  auto;
+    margin-top: 20px;
+    padding: 20px;
+    padding-bottom: 40px;
+    background-color: #EFEFEF;
+    
+}
+
+#loginForm {
+    width: 360px;;
+    margin: 0  auto;
+    margin-top: 20px;
+    padding: 20px;
+    padding-bottom: 40px;
+    background-color: #EFEFEF;
+    
+}
+
+.long {
+    width: 715px;
+}
+
+.short {
+    width: 110px;
+}
+
+.medium {
+    
+    width: 297px;
+}
+
+.medium-long {
+    
+    width: 355px;
+}
+
+.add, .searchButton {
+    background-color: #FF3B3F;
+}
+
+input:focus {
+    
+    background-color: #CAEBF2;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #A9A9A9;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #A9A9A9;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #A9A9A9;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #A9A9A9;
+}
+
+.empty {
+    color: #A9A9A9;
+}
+
+.orderDetail {
+    width: 100%;
+}
+
+.total {
+    text-align: right;
+}
+
+.right {
+    
+    text-align: right;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.order{
+    width:120px;
+    float: right;
+    background-color: #FF3B3F;
+    color: #fff;
+    margin-top: 10px;
+}
