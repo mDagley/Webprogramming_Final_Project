@@ -27,7 +27,7 @@ Current Status
  <li>connect.php</li>
  <ul><li>connects to the database</li></ul>
  <li>nav.php</li>
- <ul><li>Contains all of the html code for the navigation</li></ul>
+ <ul><li>Contains all of the html code for the navigation and header</li></ul>
  </ul>
  
  <h1>Overview</h1>
