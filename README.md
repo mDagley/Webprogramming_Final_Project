@@ -9,7 +9,8 @@ Current Status
 <li>registration.html [New User Registration Form] </li>
 <li>login.html [User Login Page]</li>
 </ul>
-<h5>JQuery</h5>
+<h5>JQuery/JavaScript/Ajax</h5>
+<ul><li>validate.js</li>
 <ul><li>Basic form validation for user registration</li>
 <ul><li>Checks that all required fields contain at least 1 character</li>
 <li> Checks that email address is in string + @ + string + . + string[3] format</li>
@@ -20,8 +21,11 @@ Current Status
  </ul>
  
  <h5>PHP</h5>
-<ul><li>Insert New Users When Registered</li>
-<li>Secondary Server-Side Form Validation</li>
+ <ul><li>register.php</li>
+ <ul><li>Insert New Users When Registered</li>
+ <li>Secondary Server-Side Form Validation</li></ul>
+ <li>connect.php</li>
+ <ul><li>connects to the database</li></ul>
  </ul>
  
  <h1>Overview</h1>
