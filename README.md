@@ -3,11 +3,11 @@
 Current Status
 
 <h5>Pages Created </h5>
-<ul><li>index.html [Listing Page] </li>
-<li>account.html [Order History] </li>
-<li>cart.html [Shopping Cart] </li>
-<li>registration.html [New User Registration Form] </li>
-<li>login.html [User Login Page]</li>
+<ul><li>index.php [Listing Page] </li>
+<li>account.php [Order History] </li>
+<li>cart.php [Shopping Cart] </li>
+<li>new.php [New User Registration Form] </li>
+<li>login.php [User Login Page]</li>
 </ul>
 <h5>JQuery/JavaScript/Ajax</h5>
 <ul><li>validate.js</li>
