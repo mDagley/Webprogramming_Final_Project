@@ -26,6 +26,8 @@ Current Status
  <li>Secondary Server-Side Form Validation</li></ul>
  <li>connect.php</li>
  <ul><li>connects to the database</li></ul>
+ <li>nav.php</li>
+ <ul><li>Contains all of the html code for the navigation</li></ul>
  </ul>
  
  <h1>Overview</h1>
