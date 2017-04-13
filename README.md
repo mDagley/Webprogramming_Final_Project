@@ -72,8 +72,9 @@ Current Status
 	
  <h5>Color Scheme</h5>
 
-Sky #CAEBF2 - Light Accent
-Carbon #A9A9A9  - Dark Neutral
-Watermelon #FF3B3F - Bright Accent
-Neutral #EFEFEF  - Light Neutral
+<ul><li>Sky #CAEBF2 - Light Accent</li>
+<li>Carbon #A9A9A9  - Dark Neutral</li>
+<li>Watermelon #FF3B3F - Bright Accent</li>
+<li>Neutral #EFEFEF  - Light Neutral</li>
+</ul>
 
