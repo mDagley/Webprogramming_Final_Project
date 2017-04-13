@@ -11,52 +11,11 @@
     <body>
          <?php require ('php/nav.php'); ?>
         
-        <aside>
-            <h3>Orders</h3>
-            
-            <select id="open" name="open" class="filter">
         
-            <option value="">----------------Open-----------------</option>
-            <option value="02282017">02/28/2017</option>
-            <option value="02262017">02/26/2017</option>
-            
-        
-            </select>
-            
-            <select id="genre" name="genre" class="filter">
-        
-            <option value="">-------------Completed----------------</option>
-            <option value="01202017">01/20/2017</option>
-            <option value="12312016">12/31/2016</option>
-            <option value="10222016">10/22/2016</option>
-            <option value="06182016">06/18/2016</option>
-            <option value="05052016">05/05/2016</option>
-        
-        </select>
-            
-            <select id="price" name="price" class="filter">
-        
-            <option value="">---------------Recent----------------</option>
-            <option value="02282017">02/28/2017</option>
-            <option value="02262017">02/26/2017</option>
-            <option value="01202017">01/20/2017</option>
-            <option value="12312016">12/31/2016</option>
-            <option value="10222016">10/22/2016</option>
-            <option value="06182016">06/18/2016</option>
-            <option value="05052016">05/05/2016</option>
-        
-        </select>
-            
-        </aside>
         
         <main>
             <h2>Order Details</h2>
             <h4>10/22/2016</h4>
-            <p>
-                Status: Completed <br/>
-                Shipping Date: 10/24/2016 <br/>
-                Delivery Date: 10/28/2016
-            </p>
             
             <div class="book">
             <table class="orderDetail">
@@ -110,22 +69,31 @@
                 </table>
                 </div>
             
-            <hr>
+           
+            
+            
+               
+                   
+        </main>
+        <aside>
+            <h3 class="right">Total</h3>
+            
+           
             
             <p class="total">
             
             Subtotal: $29.15 <br/>
             Tax: $2.40 <br/>
             Shipping: $3.99 <br/>
-            
             </p>
-            <p class="total bold">
+            <hr>
+            <p class="total bold" >
             Total: $35.54
             </p>
             
-               
-                   
-        </main>
+        </aside>
+        
+            <input type="button" class="order" value="Place Order">
         
         
     </body>

@@ -9,24 +9,20 @@
     </head>
     
     <body>
-        <?php include 'php/connect.php'; 
-        
-        
-           
-        ?>
-        <header>
+        <?php require ('php/connect.php'); ?>
+        <?php require ('php/nav.php'); ?>
+        <!--<header>
             <img src="img/banner.jpg" class="bannerimage">
         </header>
         <nav>
             <ul> 
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li class="right"><a href="cart.html">Cart (2)</a></li>
                 <li class="right"><a href="account.html">Account</a></li>
                 <li class="right"><a href="login.html">Login</a></li>
                 <li class="right"><a href="register.html">Register</a></li>
             </ul>
-        </nav>
-        
+        </nav>-->
         <aside>
             <input type="text" class="searchbox">
             <input type="button" value="Search" class="searchbutton"><br/>
