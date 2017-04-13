@@ -89,6 +89,15 @@ FROM    genre a
             ON a.GenreId = b.GenreId 
         WHERE b.Id=$bookId";
             $genres=mysqli_query($con,$genre);
+                
+                $subgenre= " SELECT   
+        GROUP_CONCAT(c.Name SEPARATOR ', ') subgenre
+FROM    books a 
+        INNER JOIN subgenrebook b
+            ON a.Id = b.BookId 
+        INNER JOIN subgenre c
+            ON b.SubGenreId = c.SunGenreId WHERE a.Id=$bookId";
+            $subgenres=mysqli_query($con,$subgenre);
             echo"<div class='book'>";
             echo "<table>";
           
@@ -98,7 +107,7 @@ FROM    genre a
                         echo"<h4>".$row['Title']."</h4>";
                        echo"<h5>";
                             while($r = mysqli_fetch_array($authors)){
-                                echo $r[0];
+                                echo $r['0'];
                             }
                             
                            echo"</h5>";
@@ -110,7 +119,13 @@ FROM    genre a
                    echo"<td colspan='2' class='genre'>";
                 
                     while($rw = mysqli_fetch_array($genres)){
-                                echo $rw['Name'];
+                                echo $rw['Name']." >> ";
+                        //echo"Genre!";
+                            }
+                $i=0;
+                    while($s = mysqli_fetch_array($subgenres)){
+                                echo $s[$i];
+                        $i= $i+1;
                         //echo"Genre!";
                             }
                 
