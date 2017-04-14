@@ -26,22 +26,15 @@
             </ul>
         </nav>
         <div id="registrationForm">
-        <form id="form" method="POST" action="register.php" >
-            <input type="text"      name="email"    value="piyush.kr0707@gmail.com" placeholder="*Email Address" autofocus="true" class="long" id="email"><br/>
-            <input type="password"  name="password" value="123"             placeholder="*Password" class="medium-long" title="Must contain at least 8 characters A-Z|0-9|!@#$%^&*" id="password"> 
-            <input type="password"  name="vpassword"value="123" placeholder="*Verify Password" class="medium-long" id="vpassword"><br/>
-            <input type="text"      name="fn"       value="Piyush"          placeholder="*First Name" class="medium" id="fn">
-            <input type="text"      name="mi"                               placeholder="Middle Initial" class="short"> 
-            <input type="text"      name="ln"       value="kumar"           placeholder="*Last Name" class="medium" id="ln"><br/>
-            <input type="text"      name="address"  value="McCallumBlvd"    placeholder="*Address Line 1" class="long" id="address"><br/>
-            <input type="text"      name="address2"                         placeholder="Address Line 2" class="long"><br/>
-            <input type="text"      name="city"     value="Dallas"          placeholder="*City" class="medium" id="city"> 
-            <input type="text"      name="state"    value="Tx"              placeholder="*State" class="short" id="state"> 
-            <input type="text"      name="zip"      value="75252"           placeholder="*Zipcode" class="medium" id="zip"><br/>
-            <input type="text"      name="country"  value="USA"             placeholder="*Country" id="country"> 
-            <input type="tel"       name="phone"    value="468777518"       placeholder="*Phone" id="phone" title="Please enter a 10 digit phone number"> <label>Birthday: </label><input type="date" name="bd" id="bd" class="empty" id="bd"><br/>
-           <input type="submit"     name="register" value="Register" class="submit" id="register" >  
-           <input type="button"     name="clear"    value="Clear"           id ="clear"   class="clear"> 
+        <form id="form" method="post" >
+            <input type="text" name="email" placeholder="*Email Address" autofocus="true" class="long" id="email"><br/>
+            <input type="password" name="password" placeholder="*Password" class="medium-long" title="Must contain at least 8 characters A-Z|0-9|!@#$%^&*" id="password"> <input type="password" name="vpassword" placeholder="*Verify Password" class="medium-long" id="vpassword"><br/>
+            <input type="text" name="fn" placeholder="*First Name" class="medium" id="fn"> <input type="text" name="mi" placeholder="Middle Initial" class="short"> <input type="text" name="ln" placeholder="*Last Name" class="medium" id="ln"><br/>
+            <input type="text" name="address" placeholder="*Address Line 1" class="long" id="address"><br/>
+            <input type="text" name="address2" placeholder="Address Line 2" class="long"><br/>
+            <input type="text" name="city" placeholder="*City" class="medium" id="city"> <input type="text" name="state" placeholder="*State" class="short" id="state"> <input type="text" name="zip" placeholder="*Zipcode" class="medium" id="zip"><br/>
+            <input type="text" name="country" placeholder="*Country" id="country"> <input type="tel" name="phone" placeholder="*Phone" id="phone" title="Please enter a 10 digit phone number"> <label>Birthday: </label><input type="date" name="bd" id="bd" class="empty" id="bd"><br/>
+           <input type="submit" name="register" value="Register" class="submit" id="register" >  <input type="button" id ="clear" name="clear" value="Clear" class="clear"> 
         
         </form>
         </div>

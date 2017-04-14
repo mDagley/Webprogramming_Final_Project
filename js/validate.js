@@ -391,9 +391,9 @@ alert("Your passwords don't match. Try again?");
         $("#email").removeClass("ok");
             }
             }
-      //*  error: function(){
-       // alert("Error Function");
-    //}
+        error: function(){
+        alert("Error Function");
+    }
     });
     }
     });
