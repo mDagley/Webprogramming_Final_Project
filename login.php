@@ -1,23 +1,60 @@
-<html lang="en">
-    <head>
-        <meta name="description" content="Online Book Store" />
-        <meta name="keywords" content="book, store, shop, books, novels, book store" />
-        <meta charset="utf-8" />
-        <title>Online Book Store</title>
-        <link href="index.css" rel="stylesheet" type="text/css">
-        <link href="favicon.ico" rel="shortcut icon" >
-    </head>
+<?php
+ 
+$email  = "";
+$password = "";
+
+function test_input($data)
+{   $data = trim($data); 
+    $data = stripslashes($data); 
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{   $email = test_input($_POST["email"]);
+    $password = test_input($_POST["password"]);
+}
+
+
+
+
+
+
+// Database connection 
+$con = mysqli_connect("localhost","root","root","book_store_3");
+if (mysqli_connect_errno())
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+
+else
+{
+    $query = "SELECT * FROM users where Email='$email' ";
     
-    <body>
-         <?php require ('php/nav.php'); ?>
-        <div id="loginForm">
-        <form id="login">
-            <input type="text" name="email" placeholder="Email Address" autofocus="true" class="medium-long"><br/>
-            <input type="password" name="password" placeholder="Password" class="medium-long"> <br/>
-            
-           <input type="button" name="submit" value="Log In" class="submit">  
+    //$query = "SELECT * FROM users" ;
+    $result = mysqli_query($con, $query);
+    if ($result->num_rows == 1)
+    {   // setting the session variable .
+        session_start();
         
-        </form>
-        </div>
-    </body>
-</html>
+        while($row = mysqli_fetch_array($result)) 
+        {
+           if(password_verify( $password, $row['Password']))
+           {// echo "matched";
+           $_SESSION['User'] = $row['Email'];
+           }
+
+            else
+            echo "nope!";
+           
+        }
+        
+
+         
+    }
+      
+    header('Location:index.php');
+}
+
+
+
+
+?>
