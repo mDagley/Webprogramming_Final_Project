@@ -53,10 +53,10 @@ Current Status
 <li>Store hashed version of password</li></ul>
 <li><h6>&#9989;Product Listing Page</h6></li>
 <ul><li>&#9989;Available to all users, including guests</li>
-<li>Allow Product Filtering</li>
-<ul><li>Genre</li>
-<li>Price</li>
-<li>Release Date</li></ul>
+<li>&#9989;Allow Product Filtering</li>
+<ul><li>&#9989;Genre</li>
+<li>&#9989;Price</li>
+<li>&#9989;Release Date</li></ul>
 <li>Allow Product Search</li>
 <li>Paging Functionality</li></ul>
 <ul><li><h7>ADMIN:</h7></li>
