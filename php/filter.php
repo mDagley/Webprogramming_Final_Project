@@ -15,14 +15,14 @@ switch($price) {
         break;
     case "10-15":
         $low = 10;
-        $high = 25;
+        $high = 15;
         break;
     case "15-25":
-        $low = 25;
-        $high = 50;
+        $low = 15;
+        $high = 25;
         break;
     case "25":
-        $low = 50;
+        $low = 25;
         break;
     default:
         $low = -1;
@@ -96,50 +96,72 @@ if(!($_GET['releaseDate']==="") && !($_GET['genre']==="") && ($low===-1) && ($hi
 //RELEASE DATE && HIGH PRICE
     if(!($_GET['releaseDate']==="") && ($_GET['genre']==="") && ($low===-1) && !($high===-1)){
     if($date === 0){
-        $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate > CURDATE() AND Price <".$high;
+        $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate > CURDATE() AND Price < ".$high;
     }
     
     else{
-        $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate BETWEEN CURDATE() AND DATE_SUB(CURDATE(), INTERVAL ".$date." DAY) AND Price < ".$high;
+        $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate BETWEEN CURDATE() - INTERVAL ".$date." DAY AND CURDATE() AND Price < ".$high;
     }
     }
 
 //RELEASE DATE && LOW PRICE
         if(!($_GET['releaseDate']==="") && ($_GET['genre']==="") && !($low===-1) && ($high===-1)){
     if($date === 0){
-        $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate > CURDATE() AND Price >".$low;
+        $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate > CURDATE() AND Price > ".$low;
     }
     
     else{
-        $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate BETWEEN CURDATE() AND DATE_SUB(CURDATE(), INTERVAL ".$date." DAY) AND Price > ".$low;
+        $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate BETWEEN CURDATE() - INTERVAL ".$date." DAY AND CURDATE() AND Price > ".$low;
     }
         }
 
 //RELEASE DATE && HIGH PRICE && LOW PRICE
-            if(!($_GET['releaseDate']==="") && ($_GET['genre']==="") && !($low===-1) && !($high===-1)){
+            if(!($date==="") && ($_GET['genre']==="") && !($low===-1) && !($high===-1)){
     if($date === 0){
         $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate > CURDATE() AND Price BETWEEN ".$low." AND ".$high;
     }
     
     else{
-        $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate BETWEEN CURDATE() AND DATE_SUB(CURDATE(), INTERVAL ".$date." DAY) AND Price BETWEEN ".$low." AND ".$high;
+        $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate BETWEEN CURDATE() - INTERVAL ".$date." DAY AND CURDATE() AND Price BETWEEN ".$low." AND ".$high;
     }
             }
 
 //GENRE && HIGH PRICE
 if(($_GET['releaseDate']==="") && !($_GET['genre']==="") && ($low===-1) && !($high===-1)){
-    $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE GenreId = '".$genre."' AND Price < ".$high;
+    $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE GenreId = '".$genre."' AND Price <   ".$high;
 }
 
 //GENRE && LOW PRICE
 if(($_GET['releaseDate']==="") && !($_GET['genre']==="") && !($low===-1) && ($high===-1)){
-    $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE GenreId = '".$genre."' AND Price > ".$low;
+    $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE GenreId = '".$genre."' AND Price >   ".$low;
 }
 
 //GENRE && HIGH PRICE && LOW PRICE
 if(($_GET['releaseDate']==="") && !($_GET['genre']==="") && !($low===-1) && !($high===-1)){
     $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE GenreId = '".$genre."' AND Price BETWEEN ".$low." AND ".$high;
 }
+
+//RELEASE DATE && HIGH PRICE && GENRE
+    if(!($_GET['releaseDate']==="") && !($_GET['genre']==="") && ($low===-1) && !($high===-1)){
+    if($date === 0){
+        $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate > CURDATE() AND Price < ".$high." AND GenreId = '".$genre."'";
+    }
+    
+    else{
+        $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate BETWEEN CURDATE() - INTERVAL ".$date." DAY AND CURDATE() AND Price < ".$high." AND GenreId = '".$genre."'";
+    }
+    }
+
+//RELEASE DATE && LOW PRICE && GENRE
+        if(!($_GET['releaseDate']==="") && !($_GET['genre']==="") && !($low===-1) && ($high===-1)){
+    if($date === 0){
+        $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate > CURDATE() AND Price > ".$low." AND GenreId = '".$genre."'";
+    }
+    
+    else{
+        $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate BETWEEN CURDATE() - INTERVAL ".$date." DAY AND CURDATE() AND Price > ".$low." AND GenreId = '".$genre."'";
+    }
+        }
 
 $result = mysqli_query($con,$books);
 
