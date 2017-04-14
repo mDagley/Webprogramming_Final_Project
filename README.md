@@ -46,34 +46,34 @@ Current Status
 <p>Online bookstore that allows users to browse available books and place orders. Users can filter by genre, price, and release date.</p>
 	
 <h5>Pages:</h5>
-<ul><li><h6>&#9989;User Registration</h6></li>
-<ul><li>Check Username and Email to see if they already exist in the system with AJAX</li>
-<li>&#9989; Check that all mandatory fields are filled out using JQUERY</li>
-<li>&#9989;Check that password is strong enough using JQUERY</li>
-<li>Store hashed version of password</li></ul>
-<li><h6>&#9989;Product Listing Page</h6></li>
-<ul><li>&#9989;Available to all users, including guests</li>
-<li>&#9989;Allow Product Filtering</li>
-<ul><li>&#9989;Genre</li>
-<li>&#9989;Price</li>
-<li>&#9989;Release Date</li></ul>
-<li>Allow Product Search</li>
-<li>Paging Functionality</li></ul>
-<ul><li><h7>ADMIN:</h7></li>
-<ul><li>List All Items</li>
-<li>Update Item</li>
-<li>Delete Item</li>
-<li>Add Item</li></ul></ul>
-<li><h6>&#9989;User Login</h6></li>
-<ul><li>Verify Login Information</li>
-<li>Start new user session</li></ul>
-<li><h6>&#9989;Checkout(Do Not Need to Process Payment)</h6></li>
-<ul><li>Add items to cart</li>
-<li>Show total for cart items</li>
-<li>Update inventory when purchases are made</li></ul>
-<li><h6>&#9989;Order History</h6></li>
-<ul><li>Load Order History from database</li>
-<li>Allow user to select specific order</li></ul>
+<ul><li><h6>&#9989;User Registration[Melissa]</h6></li>
+<ul><li>Check Username and Email to see if they already exist in the system with AJAX[Piyush]</li>
+<li>&#9989; Check that all mandatory fields are filled out using JQUERY[Melissa]</li>
+<li>&#9989;Check that password is strong enough using JQUERY[Melissa]</li>
+<li>Store hashed version of password[Piyush]</li></ul>
+<li><h6>&#9989;Product Listing Page[Melissa]</h6></li>
+<ul><li>&#9989;Available to all users, including guests[Melissa]</li>
+<li>&#9989;Allow Product Filtering[Melissa]</li>
+<ul><li>&#9989;Genre[Melissa]</li>
+<li>&#9989;Price[Melissa]</li>
+<li>&#9989;Release Date[Melissa]</li></ul>
+<li>Allow Product Search[Melissa]</li>
+<li>Paging Functionality[Melissa]</li></ul>
+<ul><li><h7>ADMIN:[Unassigned]</h7></li>
+<ul><li>List All Items[Unassigned]</li>
+<li>Update Item[Unassigned]</li>
+<li>Delete Item[Unassigned]</li>
+<li>Add Item[Unassigned]</li></ul></ul>
+<li><h6>&#9989;User Login[Melissa]</h6></li>
+<ul><li>Verify Login Information[Piyush]</li>
+<li>Start new user session[Piyush]</li></ul>
+<li><h6>&#9989;Checkout(Do Not Need to Process Payment)[Melissa]</h6></li>
+<ul><li>Add items to cart[Piyush]</li>
+<li>Show total for cart items[Piyush]</li>
+<li>Update inventory when purchases are made[Piyush]</li></ul>
+<li><h6>&#9989;Order History[Melissa]</h6></li>
+<ul><li>Load Order History from database[Melissa]</li>
+<li>Allow user to select specific order[Melissa]</li></ul>
 </ul>
 	
  <h5>Color Scheme</h5>
