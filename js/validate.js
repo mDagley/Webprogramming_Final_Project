@@ -1,7 +1,9 @@
 $(document).ready(function() {
+   
     $("#email").after('<span class="info">Please enter a valid email </span>');
 	$("#email").focus(function(){
         $(this).next("span").remove();
+         $("#email").prev("span").remove();
         $("#email").removeClass("ok");
         $("#email").removeClass("error");
         $("#email").after('<span class="info">Please enter a valid email </span>');
@@ -319,5 +321,98 @@ $(document).ready(function() {
     
 });
     
+$("#register").click(function() {
+    event.preventDefault();
+var email = $("#email").val();
+var password = $("#password").val();
+var cpassword = $("#vpassword").val();
+var fn = $("#fn").val();
+var mi = $("#mi").val();
+var ln = $("#ln").val();
+var address = $("#address").val();
+var city = $("#city").val();
+var state = $("#state").val();
+var zip = $("#zip").val();
+var country = $("#country").val();
+var phone = $("#phone").val();
+var bd = $("#bd").val();
+if (email == '' || password == '' || cpassword == '' || fn == '' || ln == '' || address == '' || city == '' || state == '' || zip == '' || country == '' || phone == '') {
+alert("Please fill all fields...!!!!!!");
+} else if ((password.length) < 8) {
+alert("Password should atleast 8 character in length...!!!!!!");
+} else if (!(password== cpassword)) {
+alert("Your passwords don't match. Try again?");
+} 
+    
+    else {
+    $.ajax({
+        url: '../BookStore/register.php',
+        type: "POST",
+        async: false,
+        data: {
+        fn1: fn,
+        mi1: mi,
+        ln1: ln,
+        email1: email,
+        password1: password,
+        fn1: fn,
+        mi1: mi,
+        ln1: ln,
+        address1: address,
+        city1: city,
+        state1: state,
+        zip1: zip,
+        country1: country,
+        phone1: phone,
+        bd1: bd,
+    }, 
+        success: function(data) {
+            console.log(data);
+               if(data === "Error"){
+                $("#email").addClass("error");
+
+                $("#email").before('<span class="info">This email has already been registered. </span>');
+               }
+            else{
+                
+                alert(data);
+                //$("#email").before('<span class="info">This email has already been registered. </span>');
+                $("form")[0].reset();
+        $("#phone").removeClass("ok");
+        $("#country").removeClass("ok");
+        $("#zip").removeClass("ok");
+        $("#state").removeClass("ok");
+        $("#city").removeClass("ok");
+        $("#address").removeClass("ok");
+        $("#ln").removeClass("ok");
+        $("#fn").removeClass("ok");
+        $("#vpassword").removeClass("ok");
+        $("#password").removeClass("ok");
+        $("#email").removeClass("ok");
+            }
+            }
+        error: function(){
+        alert("Error Function");
+    }
+    });
+    }
+    });
+    
+    $("#clear").click(function() {
+        $("form")[0].reset();
+        $("#phone").removeClass("ok");
+        $("#country").removeClass("ok");
+        $("#zip").removeClass("ok");
+        $("#state").removeClass("ok");
+        $("#city").removeClass("ok");
+        $("#address").removeClass("ok");
+        $("#ln").removeClass("ok");
+        $("#fn").removeClass("ok");
+        $("#vpassword").removeClass("ok");
+        $("#password").removeClass("ok");
+        $("#email").removeClass("ok");
+        
+    });
    
-});
+
+

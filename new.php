@@ -13,18 +13,7 @@
     
     <body>
         
-        <header>
-            <img src="img/banner.jpg" class="bannerimage">
-        </header>
-        <nav>
-            <ul> 
-                <li><a href="index.html">Home</a></li>
-                <li class="right"><a href="cart.html">Cart (2)</a></li>
-                <li class="right"><a href="account.html">Account</a></li>
-                <li class="right"><a href="login.html">Login</a></li>
-                <li class="right"><a href="register.html">Register</a></li>
-            </ul>
-        </nav>
+         <?php require ('php/nav.php'); ?>
         <div id="registrationForm">
         <form id="form" method="post" >
             <input type="text" name="email" placeholder="*Email Address" autofocus="true" class="long" id="email"><br/>

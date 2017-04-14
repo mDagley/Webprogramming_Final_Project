@@ -220,14 +220,7 @@ label {
 
 
 
-input[type="button"]{
 
-    padding: 8px 0px 6px 0px;
-    font-size: 14px;
-    color: #fff;
-    border-style: none;
-    border: 0px;
-}
 
 .clear {
     width: 120px;
@@ -245,7 +238,21 @@ input[type="button"]{
     margin-right: 5px;
 }
 
+input[type="submit"] {
+    padding: 0;
+    border: 0;
+    border-style: none;
+    
+}
 
+input[type="button"], input[type="submit"]{
+
+    padding: 8px 0px 6px 0px;
+    font-size: 14px;
+    color: #fff;
+    border-style: none;
+    border: 0px;
+}
 
 select{
     padding: 4px;
