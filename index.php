@@ -6,64 +6,76 @@
         <title>Online Book Store</title>
         <link href="index.css" rel="stylesheet" type="text/css">
         <link href="favicon.ico" rel="shortcut icon" >
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+     <script type="text/javascript">
+    function loadBooks(){
+        var xmlhttp;
+        var releaseDate = document.getElementById('releaseDate').value;
+        var genre = document.getElementById('genre').value;
+        var price = document.getElementById('price').value;
+        if (window.XMLHttpRequest){
+            xmlhttp = new XMLHttpRequest();
+        }
+        else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function(){
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                document.getElementById("listing").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "php/filter.php?releaseDate="+releaseDate+"&genre="+genre+"&price="+price, true);
+        xmlhttp.send();
+    }
+</script>
     </head>
     
     <body>
         <?php require ('php/connect.php'); ?>
         <?php require ('php/nav.php'); ?>
-        <!--<header>
-            <img src="img/banner.jpg" class="bannerimage">
-        </header>
-        <nav>
-            <ul> 
-                <li><a href="index.php">Home</a></li>
-                <li class="right"><a href="cart.html">Cart (2)</a></li>
-                <li class="right"><a href="account.html">Account</a></li>
-                <li class="right"><a href="login.html">Login</a></li>
-                <li class="right"><a href="register.html">Register</a></li>
-            </ul>
-        </nav>-->
+        
         <aside>
+            <form id="form" action="#">
             <input type="text" class="searchbox">
             <input type="button" value="Search" class="searchbutton"><br/>
             
-            <select id="releaseDate" name="releaseDate" class="filter">
+            <select id="releaseDate" name="releaseDate" class="filter" onchange="loadBooks()">
         
             <option value="">------------Release Date------------</option>
-            <option value="2005">Last 30 Days</option>
-            <option value="2006">Last 60 Days</option>
-            <option value="2007">Last 90 Days</option>
-            <option value="2008">Last Year</option>
-            <option value="2009">Coming Soon</option>
+            <option value="30">Last 30 Days</option>
+            <option value="60">Last 60 Days</option>
+            <option value="90">Last 90 Days</option>
+            <option value="365">Last Year</option>
+            <option value="0">Coming Soon</option>
         
             </select>
             
-            <select id="genre" name="genre" class="filter">
+            <select id="genre" name="genre" class="filter" onchange="loadBooks()">
         
             <option value="">----------------Genre----------------</option>
-            <option value="2005">Adult</option>
-            <option value="2006">Young Adult</option>
-            <option value="2007">Fiction</option>
-            <option value="2008">Non-Fiction</option>
-            <option value="2009">Poetry</option>
-        
+            <option value="1">Fiction</option>
+            <option value="2">NonFiction</option>
+            <option value="3">Teen</option>
+            <option value="4">Kids</option>
         </select>
             
-            <select id="price" name="price" class="filter">
+            <select id="price" name="price" class="filter" onchange="loadBooks()">
         
             <option value="">----------------Price----------------</option>
-            <option value="2005">Under $5</option>
-            <option value="2006">$5-$10</option>
-            <option value="2007">$10-$25</option>
-            <option value="2008">$25-$50</option>
-            <option value="2009">Over $50</option>
+            <option value="5">Under $5</option>
+            <option value="5-10">$5-$10</option>
+            <option value="10-15">$10-$15</option>
+            <option value="15-25">$15-$25</option>
+            <option value="25">Over $25</option>
         
-        </select>
+        </select><br/>
+        
+            </form>
             
         </aside>
         
-        <main>
-           <?php
+        <main id="listing">
+         <?php
         
             $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books";
             $result=mysqli_query($con,$books);
