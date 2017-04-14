@@ -3,11 +3,6 @@ $date = intval($_GET['releaseDate']);
 $genre = intval($_GET['genre']);
 $price = strval($_GET['price']);
 
-var $low = NULL;
-var $high = NULL;
-
-
-
 switch($price) {
     case "5":
         $high = 5;
@@ -27,10 +22,7 @@ switch($price) {
     case "25":
         $low = 50;
         break;
-    default
-        $high=NULL;
-        $low=NULL;
-        break;
+   
 }
 
 include 'connect.php';
