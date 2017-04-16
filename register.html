@@ -9,6 +9,40 @@
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <script src="js/jquery-3.1.1.min.js"></script>
 	    <script src="js/validate.js"></script>
+        <script>
+          
+        $(document).ready(function() {
+            $("#email").focusout(function(){
+                does_email_exit_already();
+                 
+                                    }) });
+
+          function does_email_exit_already()
+            {
+                   $("#email").val();
+               
+               var _email_ = $("#email").val();
+          
+
+                $.ajax({ type:'post' ,
+                         url: 'emailCheck.php',
+                         data: { email : _email_  } ,
+                         success : populateTable 
+                       }) ;
+
+
+            }
+
+            function populateTable(response)
+            {
+                   // $("#results").html (response);
+
+                    console.log(response);
+             
+                     
+            }
+
+            </script>
     </head>
     
     <body>
