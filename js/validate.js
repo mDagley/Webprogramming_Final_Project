@@ -330,6 +330,7 @@ var fn = $("#fn").val();
 var mi = $("#mi").val();
 var ln = $("#ln").val();
 var address = $("#address").val();
+    var address2 = $("#address2").val();
 var city = $("#city").val();
 var state = $("#state").val();
 var zip = $("#zip").val();
@@ -359,6 +360,7 @@ alert("Your passwords don't match. Try again?");
         mi1: mi,
         ln1: ln,
         address1: address,
+        address21: address2,
         city1: city,
         state1: state,
         zip1: zip,
@@ -375,7 +377,7 @@ alert("Your passwords don't match. Try again?");
                }
             else{
                 
-                alert(data);
+                $("#email").before('<span class="info">Successfully Registered! </span>');
                 //$("#email").before('<span class="info">This email has already been registered. </span>');
                 $("form")[0].reset();
         $("#phone").removeClass("ok");
@@ -391,9 +393,9 @@ alert("Your passwords don't match. Try again?");
         $("#email").removeClass("ok");
             }
             }
-        error: function(){
-        alert("Error Function");
-    }
+      //*  error: function(){
+       // alert("Error Function");
+    //}
     });
     }
     });
@@ -414,5 +416,5 @@ alert("Your passwords don't match. Try again?");
         
     });
    
-
+});
 
