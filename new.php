@@ -18,7 +18,7 @@
         <form id="form" method="post" >
             <input type="text" name="email" placeholder="*Email Address" autofocus="true" class="long" id="email"><br/>
             <input type="password" name="password" placeholder="*Password" class="medium-long" title="Must contain at least 8 characters A-Z|0-9|!@#$%^&*" id="password"> <input type="password" name="vpassword" placeholder="*Verify Password" class="medium-long" id="vpassword"><br/>
-            <input type="text" name="fn" placeholder="*First Name" class="medium" id="fn"> <input type="text" name="mi" placeholder="Middle Initial" class="short"> <input type="text" name="ln" placeholder="*Last Name" class="medium" id="ln"><br/>
+            <input type="text" name="fn" placeholder="*First Name" class="medium" id="fn"> <input type="text" name="mi" placeholder="Middle Initial" class="short" id="mi"> <input type="text" name="ln" placeholder="*Last Name" class="medium" id="ln"><br/>
             <input type="text" name="address" placeholder="*Address Line 1" class="long" id="address"><br/>
             <input type="text" name="address2" placeholder="Address Line 2" class="long"><br/>
             <input type="text" name="city" placeholder="*City" class="medium" id="city"> <input type="text" name="state" placeholder="*State" class="short" id="state"> <input type="text" name="zip" placeholder="*Zipcode" class="medium" id="zip"><br/>
