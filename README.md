@@ -47,10 +47,10 @@ Current Status
 	
 <h5>Pages:</h5>
 <ul><li><h6>&#9989;User Registration[Melissa]</h6></li>
-<ul><li>Check Username and Email to see if they already exist in the system with AJAX[Piyush]</li>
+<ul><li>&#9989;Check Username and Email to see if they already exist in the system with AJAX[Piyush]</li>
 <li>&#9989; Check that all mandatory fields are filled out using JQUERY[Melissa]</li>
 <li>&#9989;Check that password is strong enough using JQUERY[Melissa]</li>
-<li>Store hashed version of password[Piyush]</li></ul>
+<li>&#9989;Store hashed version of password[Piyush]</li></ul>
 <li><h6>&#9989;Product Listing Page[Melissa]</h6></li>
 <ul><li>&#9989;Available to all users, including guests[Melissa]</li>
 <li>&#9989;Allow Product Filtering[Melissa]</li>
@@ -65,8 +65,8 @@ Current Status
 <li>Delete Item[Unassigned]</li>
 <li>Add Item[Unassigned]</li></ul></ul>
 <li><h6>&#9989;User Login[Melissa]</h6></li>
-<ul><li>Verify Login Information[Piyush]</li>
-<li>Start new user session[Piyush]</li></ul>
+<ul><li>&#9989;Verify Login Information[Piyush]</li>
+<li>&#9989;Start new user session[Piyush]</li></ul>
 <li><h6>&#9989;Checkout(Do Not Need to Process Payment)[Melissa]</h6></li>
 <ul><li>Add items to cart[Piyush]</li>
 <li>Show total for cart items[Piyush]</li>
