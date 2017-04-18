@@ -12,8 +12,8 @@
         <?php require ('php/nav.php'); ?>
          <div id="loginForm" >
         <form id="login" method="Post" action="login.php">
-            <input type="text" value="piyush0707@gmail.com" name="email" placeholder="Email Address" autofocus="true" class="medium-long"><br/>
-            <input type="password" value="123" name="password" placeholder="Password" class="medium-long"> <br/>
+            <input type="text" name="email" placeholder="Email Address" autofocus="true" class="medium-long"><br/>
+            <input type="password" name="password" placeholder="Password" class="medium-long"> <br/>
             
             <input type="submit" name="submit" value="Log In" class="submit">  
         
