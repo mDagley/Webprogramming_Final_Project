@@ -76,8 +76,20 @@
         
         <main id="listing">
          <?php
-        
-            $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books";
+        //Records per page
+            $per_page = 5;
+
+            if (isset($_GET["page"])) {
+            $page = $_GET["page"];
+            }
+            else {
+            $page = 1;
+            }
+            
+            // Page will start from 0 and Multiple by Per Page
+            $start_from = ($page-1) * $per_page;
+            
+            $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books ORDER BY Title LIMIT $start_from, $per_page";
             $result=mysqli_query($con,$books);
             while($row = mysqli_fetch_array($result)) {
                 $bookId = $row['Id'];
@@ -151,7 +163,39 @@ FROM    books a
            echo"<hr>";
             }
             ?>
-    
+            <?php
+
+//Now select all from table
+$query = "select * from books";
+$result = mysqli_query($con, $query);
+
+// Count the total records
+$total_records = mysqli_num_rows($result);
+
+//Using ceil function to divide the total records on per page
+$total_pages = ceil($total_records / $per_page);
+
+//Going to first page
+if($_GET['page'] != 1) {
+echo "<center><a href='index.php?page=1'>".'First Page'."</a>";
+} else echo "<center>";
+echo "<a href='index.php?page=" . ($_GET['page']-1) . "'><<</a>";
+
+
+for ($i=1; $i<=$total_pages; $i++) {
+
+echo "<a href='index.php?page=".$i."'>".$i."</a> ";
+};
+
+echo "<a href='index.php?page=" . ($_GET['page']+1) . "'>>></a>";
+
+// Going to last page
+if($_GET['page'] != $total_pages) {
+echo "<a href='index.php?page=$total_pages'>".'Last Page'."</a></center> ";
+} else echo "</center>";
+?>
+            <br/>
+    <footer><p>This is where the footer information will go. - Melissa</p></footer>
         </main>
         
         
