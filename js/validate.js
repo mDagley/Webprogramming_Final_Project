@@ -347,7 +347,7 @@ alert("Your passwords don't match. Try again?");
     
     else {
     $.ajax({
-        url: '../BookStore/register.php',
+        url: '../php/register.php',
         type: "POST",
         async: false,
         data: {

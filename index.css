@@ -1,8 +1,12 @@
-body {
+html, body {
     
     font-family: sans-serif;
     color: #000;
-    
+    height: 100%;
+}
+
+body{
+    position: relative;
 }
 
 h4 {
@@ -254,7 +258,7 @@ select{
     margin: 8px 0px;
     box-sizing: border-box;
     color: black;
-    font-size:13px;
+    font-size:16px;
  
     
 }
@@ -395,4 +399,13 @@ footer {
     padding: 0.5px;
   background-color: #caebf2;
   text-align: center;
+    height: 50px;
+    vertical-align: middle;
 }
+
+div#wrapper{
+    background-color: #ffffff;
+    height: 130%;
+    overflow: visible;
+}
+

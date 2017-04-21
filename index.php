@@ -33,7 +33,7 @@
        
         <?php include ('php/nav.php'); ?>
     
-
+<div id="wrapper">
         
         <aside>
             <form id="form" action="#">
@@ -42,7 +42,7 @@
             
             <select id="releaseDate" name="releaseDate" class="filter" onchange="searchFilter()">
         
-            <option value="">------------Release Date------------</option>
+                <option value="" class="categoryHeader">Release Date</option>
             <option value="30">Last 30 Days</option>
             <option value="60">Last 60 Days</option>
             <option value="90">Last 90 Days</option>
@@ -53,7 +53,7 @@
             
             <select id="genre" name="genre" class="filter" onchange="searchFilter()">
         
-            <option value="">----------------Genre----------------</option>
+            <option value="" class="categoryHeader">Genre</option>
             <option value="1">Fiction</option>
             <option value="2">NonFiction</option>
             <option value="3">Teen</option>
@@ -62,7 +62,7 @@
             
             <select id="price" name="price" class="filter" onchange="searchFilter()">
         
-            <option value="">----------------Price----------------</option>
+            <option value="" class="categoryFilter">Price</option>
             <option value="5">Under $5</option>
             <option value="5-10">$5-$10</option>
             <option value="10-15">$10-$15</option>
@@ -185,8 +185,12 @@ FROM    books a
 
 
             <br/>
-    <footer><p>This is where the footer information will go. - Melissa</p></footer>
+    
         </main>
+    
+    
+        </div>
+        <footer><p>This is where the footer information will go. - Melissa</p></footer>
         
         
     </body>
