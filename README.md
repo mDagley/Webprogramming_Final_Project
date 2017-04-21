@@ -57,8 +57,8 @@ Current Status
 <ul><li>&#9989;Genre[Melissa]</li>
 <li>&#9989;Price[Melissa]</li>
 <li>&#9989;Release Date[Melissa]</li></ul>
-<li>Allow Product Search[Melissa]</li>
-<li>Paging Functionality[Melissa]</li></ul>
+<li>&#9989;Allow Product Search[Melissa]</li>
+<li>&#9989;Paging Functionality[Melissa]</li></ul>
 <ul><li><h7>ADMIN:[Unassigned: (I can design the html elements if you want - Melissa)]</h7></li>
 <ul><li>List All Items[Unassigned]</li>
 <li>Update Item[Unassigned]</li>
