@@ -112,15 +112,10 @@ aside {
 }
 
 .searchbox {
-    width: 75%;
+    width: 100%;
 }
 
-.searchbutton {
-    
-    width: 23%;
-    margin-top: 8px;
-    min-width: 50px;
-}
+
 
 main {
     float: left;
@@ -129,12 +124,12 @@ main {
     background-color: #fff;
     padding: 2%;
     height: 80%;
-    overflow: scroll;
+    overflow: visible;
 }
 
 .filter{
     
-    width: 74%;
+    width: 100%;
     margin: 10px 0px;
 }
 
@@ -280,15 +275,14 @@ select{
 }
 
 .addButton {
-    padding 0px;
+    
     margin 0px;
     width: 100px;
-    
 }
 
 
 
-.bookcover {
+img.bookCover {
     
     height: 150px;
     width: 100px;
@@ -394,4 +388,11 @@ input:focus {
 
 .error {
     border-color: red;
+}
+
+footer {
+    
+    padding: 0.5px;
+  background-color: #caebf2;
+  text-align: center;
 }
