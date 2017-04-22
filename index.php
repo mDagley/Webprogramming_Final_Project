@@ -7,7 +7,7 @@
         <title>Online Book Store</title>
         <link href="index.css" rel="stylesheet" type="text/css">
         <link href="favicon.ico" rel="shortcut icon" >
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="js/jquery-3.1.1.min.js"></script>
      <script>
     function searchFilter(page_num){
         page_num = page_num?page_num:0;
@@ -37,7 +37,7 @@
         
         <aside>
             <form id="form" action="#">
-            <input type="text" class="searchbox" id="keywords" onkeyup="searchFilter()" placeholder="Search..."/>
+            <input type="text" class="searchbox" id="keywords" onkeyup="searchFilter()" placeholder="Search..." class="search"/>
            
             
             <select id="releaseDate" name="releaseDate" class="filter" onchange="searchFilter()">
@@ -131,7 +131,7 @@ FROM    books a
             ON b.SubGenreId = c.SunGenreId WHERE a.Id=$bookId";
             $subgenres=mysqli_query($con,$subgenre);
             echo"<div class='book'>";
-            echo "<table>";
+            echo "<table class='bookListing'>";
           
                 echo"<tr>";
                    echo"<td class='coverImage'><img src='img/bookcovers/".$row['CoverImage']."' class='bookCover'></td>";
@@ -165,7 +165,7 @@ FROM    books a
      
                 echo"</tr>";
                echo"<tr class='buy'>";
-                echo"<td colspan='3' class='price'>$".$row['Price']."</td>";
+                echo"<td colspan='3' class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
                echo"<td class='addButton'><input type='button' value='+ CART' class='add'></td>";
                 
                 echo"</tr>";
@@ -190,7 +190,7 @@ FROM    books a
     
     
         </div>
-        <footer><p>This is where the footer information will go. - Melissa</p></footer>
+        <?php include("php/footer.php");?>
         
         
     </body>

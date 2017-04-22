@@ -41,6 +41,7 @@
     <body>
         
          <?php require ('php/nav.php'); ?>
+        <div id="wrapper">
         <div id="registrationForm">
         <form id="form" method="post" >
             <input type="text"      name="email"        placeholder="*Email Address"        class="long"            id="email"      autofocus="true"><br/>
@@ -63,7 +64,8 @@
         
         </form>
         </div>
-        
+        </div>
+        <?php include("php/footer.php");?>
         <script type="text/javascript">
                 var el = document.getElementById('bd');
                 el.onchange = function() {

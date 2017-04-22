@@ -10,6 +10,7 @@
     
     <body>
         <?php require ('php/nav.php'); ?>
+        <div id="wrapper">
          <div id="loginForm" >
         <form id="login" method="Post" action="php/login.php">
             <input type="text" name="email" placeholder="Email Address" autofocus="true" class="medium-long"><br/>
@@ -19,5 +20,7 @@
         
         </form>
         </div>
+        </div>
+        <?php include("php/footer.php");?>
     </body>
 </html>

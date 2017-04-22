@@ -11,7 +11,7 @@
     <body>
          <?php require ('php/nav.php'); ?>
         
-        
+       <div id="wrapper"> 
         
         <main>
             <h2>Order Details</h2>
@@ -95,6 +95,7 @@
         
             <input type="button" class="order" value="Place Order">
         
-        
+        </div>
+        <?php include("php/footer.php");?>
     </body>
 </html>
