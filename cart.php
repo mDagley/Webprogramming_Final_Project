@@ -93,7 +93,7 @@
             
         </aside>
         
-            <input type="button" class="order" value="Place Order">
+            <input type="button" class="order btn" value="Place Order">
         
         </div>
         <?php include("php/footer.php");?>

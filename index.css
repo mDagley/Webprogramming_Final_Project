@@ -272,10 +272,27 @@ input[type="submit"] {
     
 }
 
+input[type="submit"]:hover, input[type="button"]:hover {
+    cursor: pointer;
+    
+}
+
+input[type="submit"].submit:hover{
+    background-color: darkcyan;
+}
+
+input[type="button"].clear:hover{
+    background-color: #FF3B3F;
+}
+
+input[type="button"].clear:active{
+    background-color: #CAEBF2;
+}
+
 input[type="button"], input[type="submit"]{
 
     padding: 8px 0px 6px 0px;
-    font-size: 14px;
+    
     color: #fff;
     border-style: none;
     border: 0px;
@@ -298,12 +315,23 @@ select{
 .price, .addButton {
     background-color: #fff;
     vertical-align: middle;
+    padding: 5px 0px 5px 0px;
+    margin-right: 10px;
+}
+
+.price{
+    padding-right: 10px;
 }
 
 .add {
-    width: 110%;
+    width: 100%;
     
     
+}
+
+.add, .searchButton {
+    background-color: #FF3B3F;
+    font-size: 13pt;
 }
 
 .addButton {
@@ -312,7 +340,17 @@ select{
     width: 100px;
 }
 
+.edit{
+    background-color: #007c91;
+    width: 90%;
+    float: left;
+   
+}
 
+.delete{
+    width: 90%;
+    float: left;
+}
 
 img.bookCover {
     
@@ -333,6 +371,18 @@ img.bookCover {
     padding-bottom: 40px;
     background-color: #EFEFEF;
     
+}
+
+
+#updateForm {
+    width: 715px;;
+    margin: 0  auto;
+    margin-top: 20px;
+    padding: 20px;
+    padding-bottom: 40px;
+    background-color: #EFEFEF;
+    overflow: hidden;
+    margin-bottom: 100px;
 }
 
 #loginForm {
@@ -367,9 +417,7 @@ img.bookCover {
     width: 355px;
 }
 
-.add, .searchButton {
-    background-color: #FF3B3F;
-}
+
 
 input:focus {
     
@@ -462,4 +510,33 @@ div.pagination a:hover, div.pagination a:active {
     background-color: #CAEBF2;
     color: #fff;
 }
+
+
+.new{
+    width: 32%;
+    font-size: 20px;
+    background-color: darkcyan;
+    float: left;
+    
+    text-align: center;
+    
+}
+
+.btn{
+    font-size: 14pt;
+}
+
+.right{
+    margin-left: 2%;
+}
+
+.left{
+    margin-right: 2%;
+}
+
+.checkbox{
+    width: 33.33%;
+    float: left;
+}
+
 

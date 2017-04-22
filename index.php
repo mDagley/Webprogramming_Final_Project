@@ -31,7 +31,8 @@
     
     <body>
        
-        <?php include ('php/nav.php'); ?>
+        <?php include ('php/nav.php'); 
+        ?>
     
 <div id="wrapper">
         
@@ -77,7 +78,9 @@
         
         <main id="listing">
          <?php
-            
+            if($admin=='true'){
+                echo "<a href='updateBook.php'><input type='button' value='&#10010; NEW BOOK' class='new left'></a><a href='newAuthor.php'><input type='button' value='&#10010; NEW AUTHOR' class='new'></a><a href='newSubgenre.php'><input type='button' value='&#10010; NEW SUBGENRE' class='new right'></a>";
+            }
            include ('php/connect.php');
             include ('php/Pagination.php'); 
         //Records per page
@@ -165,8 +168,15 @@ FROM    books a
      
                 echo"</tr>";
                echo"<tr class='buy'>";
+                if($admin=='true'){
+                    echo "<td class='addButton'><input type='button' value='Edit' class='edit add'></td>";
+                    echo "<td class='addButton'><input type='button' value='Delete' class='delete add'></td>";
+                   echo "<td class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
+               }
+                else{
                 echo"<td colspan='3' class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
-               echo"<td class='addButton'><input type='button' value='+ CART' class='add'></td>";
+                }
+               echo"<td class='addButton'><input type='button' value='&#10010; CART' class='add'></td>";
                 
                 echo"</tr>";
                 echo"</table>";

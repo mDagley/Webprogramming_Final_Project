@@ -1,14 +1,21 @@
 <?php 
 session_start();
+$admin = true;
 ?>
 
 
 <header>
-    <a href="index.php"><img src="../BookStore/img/banner.jpg" class="bannerimage"></a>
+    <a href="index.php"><img src="img/banner.jpg" class="bannerimage"></a>
         </header>
         <nav>
             <ul> 
-                <li><a href="index.php" class="navLink">Home</a></li>
+                <?php if($admin=='true'){
+                            echo "<li><a href='index.php' class='navLink'>Home [Admin]</a></li>";
+}
+                else{
+                    echo "<li><a href='index.php' class='navLink'>Home</a></li>";
+                }
+               ?>
                 <li class="right"><a href="cart.php" class="navLink">Cart (2)</a></li>
                 <li class="right"><a href="account.php" class="navLink">Account</a></li>
                 <?php 
