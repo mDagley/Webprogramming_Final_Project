@@ -1,14 +1,16 @@
-$(document).ready(function() {
+$(document).ready(function() 
+{
    
     $("#email").after('<span class="info">Please enter a valid email </span>');
 	$("#email").focus(function(){
         $(this).next("span").remove();
-         $("#email").prev("span").remove();
+        $("#email").prev("span").remove();
         $("#email").removeClass("ok");
         $("#email").removeClass("error");
         $("#email").after('<span class="info">Please enter a valid email </span>');
     
 });
+
     
     $("#email").blur(function(){
         $(this).next("span").remove();
@@ -415,6 +417,7 @@ alert("Your passwords don't match. Try again?");
         $("#email").removeClass("ok");
         
     });
+
    
 });
 
