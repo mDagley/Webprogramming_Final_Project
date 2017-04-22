@@ -11,17 +11,17 @@ function test_input($data)
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {   
-    $email     = test_input($_POST['email']);
-    $password  = test_input($_POST['password']);
-    $fn        = test_input($_POST['fn']);
-    $mi        = test_input($_POST['mi']);
-    $ln        = test_input($_POST['ln']);
-    $address   = test_input($_POST['address']) .test_input($_POST['address2']) ;
-    $city      = test_input($_POST['city']);
-    $state     = test_input($_POST['state']);
-    $zip       = test_input($_POST['zip']);
-    $country   = test_input($_POST['country']);
-    $phone     = test_input($_POST['phone']);
+    $email     = test_input($_POST['email1']);
+    $password  = test_input($_POST['password1']);
+    $fn        = test_input($_POST['fn1']);
+    $mi        = test_input($_POST['mi1']);
+    $ln        = test_input($_POST['ln1']);
+    $address   = test_input($_POST['address1']) .test_input($_POST['address21']) ;
+    $city      = test_input($_POST['city1']);
+    $state     = test_input($_POST['state1']);
+    $zip       = test_input($_POST['zip1']);
+    $country   = test_input($_POST['country1']);
+    $phone     = test_input($_POST['phone1']);
    
 }
 

@@ -1,8 +1,12 @@
-body {
+html, body {
     
     font-family: sans-serif;
     color: #000;
-    
+    height: 100%;
+}
+
+body{
+    position: relative;
 }
 
 h4 {
@@ -35,13 +39,30 @@ h5 {
 .synopsis {
     
     font-size: 14px;
+    width: 100%;
 }
 
-
+a.navLink:link, a.navLink:visited, a.navLink:hover{
+    
+    text-decoration: none;
+    color: #FFF;
+}
 
 a:link, a:visited, a:hover{
     
     text-decoration: none;
+    color: #A9A9A9;
+    
+}
+
+a:active{
+    color: #FF3B3F;
+}
+
+a.footer:link, a.footer:visited, a.footer:hover{
+    
+    text-decoration: none;
+    color: #FF3B3F;
 }
 
 
@@ -107,20 +128,26 @@ aside {
     float: left;
     width: 18%;
     background-color: #CAEBF2;
-    margin: 1% 0% 0% 0%;
+    margin: .5% 0% 0% 0%;
+    opacity: .7;
+    border-radius: 0px 0px 15px 15px;
+    height: 300px;
+    padding-top: 50px;
+    background: -moz-linear-gradient(90deg, rgba(140,192,207,1) 0%, rgba(202,235,242,1) 50%, rgba(202,235,242,1) 100%); /* ff3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(202,235,242,1)), color-stop(50%, rgba(202,235,242,1)), color-stop(100%, rgba(140,192,207,1))); /* safari4+,chrome */
+background: -webkit-linear-gradient(90deg, rgba(140,192,207,1) 0%, rgba(202,235,242,1) 50%, rgba(202,235,242,1) 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(90deg, rgba(140,192,207,1) 0%, rgba(202,235,242,1) 50%, rgba(202,235,242,1) 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(90deg, rgba(140,192,207,1) 0%, rgba(202,235,242,1) 50%, rgba(202,235,242,1) 100%); /* ie10+ */
+background: linear-gradient(0deg, rgba(140,192,207,1) 0%, rgba(202,235,242,1) 50%, rgba(202,235,242,1) 100%); /* w3c */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CAEBF2', endColorstr='#8CC0CF',GradientType=0 ); /* ie6-9 */
     
 }
 
 .searchbox {
-    width: 75%;
+    width: 100%;
 }
 
-.searchbutton {
-    
-    width: 23%;
-    margin-top: 8px;
-    min-width: 50px;
-}
+
 
 main {
     float: left;
@@ -128,13 +155,13 @@ main {
     width: 75%;
     background-color: #fff;
     padding: 2%;
-    height: 80%;
-    overflow: scroll;
+    min-height: 80%;
+    overflow: visible;
 }
 
 .filter{
     
-    width: 74%;
+    width: 100%;
     margin: 10px 0px;
 }
 
@@ -208,14 +235,14 @@ input[type="text"], input[type="number"], input[type="password"], input[type="te
 
 input[type="date"] {
     padding: 4px;
-    margin: 8px 0px;
+    margin: 6px 0px;
     box-sizing: border-box;
     font-size:17px;
 }
 
 label {
      color: #A9A9A9;
-    font-size:17px;
+    font-size:16px;
 }
 
 
@@ -259,7 +286,7 @@ select{
     margin: 8px 0px;
     box-sizing: border-box;
     color: black;
-    font-size:13px;
+    font-size:16px;
  
     
 }
@@ -280,15 +307,14 @@ select{
 }
 
 .addButton {
-    padding 0px;
+    
     margin 0px;
     width: 100px;
-    
 }
 
 
 
-.bookcover {
+img.bookCover {
     
     height: 150px;
     width: 100px;
@@ -319,6 +345,10 @@ select{
     
 }
 
+.bookListing{
+    width: 100%;
+}
+
 .long {
     width: 715px;
 }
@@ -343,8 +373,11 @@ select{
 
 input:focus {
     
-    background-color: #CAEBF2;
+    background-color: #ffffff;
+    border-color: #64d9f2;
 }
+
+
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #A9A9A9;
@@ -395,3 +428,38 @@ input:focus {
 .error {
     border-color: red;
 }
+
+footer {
+    
+    padding: 0.5px;
+  background-color: #caebf2;
+  text-align: center;
+   
+    vertical-align: middle;
+}
+
+div#wrapper{
+    background-color: #ffffff;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+div.pagination {
+    font-family: "Lucida Sans", Geneva, Verdana, sans-serif;
+    padding:20px;
+    margin:7px;
+}
+div.pagination a {
+    margin: 2px;
+    padding: 0.5em 0.64em 0.43em 0.64em;
+    background-color: #FF3B3F;
+    text-decoration: none;
+    color: #fff;
+}
+div.pagination a:hover, div.pagination a:active {
+    padding: 0.5em 0.64em 0.43em 0.64em;
+    margin: 2px;
+    background-color: #CAEBF2;
+    color: #fff;
+}
+

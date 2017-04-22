@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html lang="en">
     <head>
         <meta name="description" content="Online Book Store" />
@@ -6,42 +7,42 @@
         <title>Online Book Store</title>
         <link href="index.css" rel="stylesheet" type="text/css">
         <link href="favicon.ico" rel="shortcut icon" >
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-     <script type="text/javascript">
-    function loadBooks(){
-        var xmlhttp;
-        var releaseDate = document.getElementById('releaseDate').value;
-        var genre = document.getElementById('genre').value;
-        var price = document.getElementById('price').value;
-        if (window.XMLHttpRequest){
-            xmlhttp = new XMLHttpRequest();
-        }
-        else{
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function(){
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                document.getElementById("listing").innerHTML = xmlhttp.responseText;
+        <script src="js/jquery-3.1.1.min.js"></script>
+     <script>
+    function searchFilter(page_num){
+        page_num = page_num?page_num:0;
+        var keywords = $('#keywords').val();
+        var releaseDate = $('#releaseDate').val();
+        var genre = $('#genre').val();
+        var price = $('#price').val();
+        $.ajax({
+            type: 'POST',
+            url: 'php/filter.php',
+            data: 'page='+page_num+'&keywords='+keywords+'&releaseDate='+releaseDate+'&genre='+genre+'&price='+price,
+            
+            success: function (html) {
+                $('#listing').html(html);
+                
             }
-        }
-        xmlhttp.open("GET", "php/filter.php?releaseDate="+releaseDate+"&genre="+genre+"&price="+price, true);
-        xmlhttp.send();
+        });
     }
 </script>
     </head>
     
     <body>
-        <?php require ('php/connect.php'); ?>
-        <?php require ('php/nav.php'); ?>
+       
+        <?php include ('php/nav.php'); ?>
+    
+<div id="wrapper">
         
         <aside>
             <form id="form" action="#">
-            <input type="text" class="searchbox">
-            <input type="button" value="Search" class="searchbutton"><br/>
+            <input type="text" class="searchbox" id="keywords" onkeyup="searchFilter()" placeholder="Search..." class="search"/>
+           
             
-            <select id="releaseDate" name="releaseDate" class="filter" onchange="loadBooks()">
+            <select id="releaseDate" name="releaseDate" class="filter" onchange="searchFilter()">
         
-            <option value="">------------Release Date------------</option>
+                <option value="" class="categoryHeader">Release Date</option>
             <option value="30">Last 30 Days</option>
             <option value="60">Last 60 Days</option>
             <option value="90">Last 90 Days</option>
@@ -50,18 +51,18 @@
         
             </select>
             
-            <select id="genre" name="genre" class="filter" onchange="loadBooks()">
+            <select id="genre" name="genre" class="filter" onchange="searchFilter()">
         
-            <option value="">----------------Genre----------------</option>
+            <option value="" class="categoryHeader">Genre</option>
             <option value="1">Fiction</option>
             <option value="2">NonFiction</option>
             <option value="3">Teen</option>
             <option value="4">Kids</option>
         </select>
             
-            <select id="price" name="price" class="filter" onchange="loadBooks()">
+            <select id="price" name="price" class="filter" onchange="searchFilter()">
         
-            <option value="">----------------Price----------------</option>
+            <option value="" class="categoryFilter">Price</option>
             <option value="5">Under $5</option>
             <option value="5-10">$5-$10</option>
             <option value="10-15">$10-$15</option>
@@ -76,10 +77,33 @@
         
         <main id="listing">
          <?php
+            
+           include ('php/connect.php');
+            include ('php/Pagination.php'); 
+        //Records per page
+           $limit = 3;
+
+           $queryNum = $con->query("SELECT COUNT(*) as postNum FROM books");
+    $resultNum = $queryNum->fetch_assoc();
+    $rowCount = $resultNum['postNum'];
+            
+//initialize pagination class
+    $pagConfig = array(
+        'totalRows' => $rowCount,
+        'perPage' => $limit,
+        'link_func' => 'searchFilter'
+    );
+    $pagination =  new Pagination($pagConfig);
+
+            
+            $query = $con->query("SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books ORDER BY Title LIMIT $limit");
+           
+            
+             if($query->num_rows > 0){ ?>
         
-            $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books";
-            $result=mysqli_query($con,$books);
-            while($row = mysqli_fetch_array($result)) {
+<?php
+            
+            while($row = $query->fetch_assoc()) {
                 $bookId = $row['Id'];
             $author= " SELECT   
         GROUP_CONCAT(c.FirstName, ' ', c.MiddleName, ' ', c.LastName SEPARATOR ', ') author
@@ -107,7 +131,7 @@ FROM    books a
             ON b.SubGenreId = c.SunGenreId WHERE a.Id=$bookId";
             $subgenres=mysqli_query($con,$subgenre);
             echo"<div class='book'>";
-            echo "<table>";
+            echo "<table class='bookListing'>";
           
                 echo"<tr>";
                    echo"<td class='coverImage'><img src='img/bookcovers/".$row['CoverImage']."' class='bookCover'></td>";
@@ -141,8 +165,8 @@ FROM    books a
      
                 echo"</tr>";
                echo"<tr class='buy'>";
-                echo"<td colspan='3' class='price'>$".$row['Price']."</td>";
-               echo"<td class='addButton'><input type='button' value='+ CART' class='Add'></td>";
+                echo"<td colspan='3' class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
+               echo"<td class='addButton'><input type='button' value='+ CART' class='add'></td>";
                 
                 echo"</tr>";
                 echo"</table>";
@@ -151,8 +175,22 @@ FROM    books a
            echo"<hr>";
             }
             ?>
+            
+      
+        
+        <?php echo $pagination->createLinks(); ?>
+    <?php } ?>
+        
+          
+
+
+            <br/>
     
         </main>
+    
+    
+        </div>
+        <?php include("php/footer.php");?>
         
         
     </body>

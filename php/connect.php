@@ -58,7 +58,7 @@ mysqli_close($con);
         
 else{
     
-    echo "Database Connected";
+    //echo "Database Connected";
 }
 ?>
     </body>

@@ -10,13 +10,13 @@
     
     <body>
          <?php require ('php/nav.php'); ?>
-        
+        <div id="wrapper">
         <aside>
             <h3>Orders</h3>
             
             <select id="open" name="open" class="filter">
         
-            <option value="">----------------Open-----------------</option>
+            <option value="">Open</option>
             <option value="02282017">02/28/2017</option>
             <option value="02262017">02/26/2017</option>
             
@@ -25,7 +25,7 @@
             
             <select id="genre" name="genre" class="filter">
         
-            <option value="">-------------Completed----------------</option>
+            <option value="">Completed</option>
             <option value="01202017">01/20/2017</option>
             <option value="12312016">12/31/2016</option>
             <option value="10222016">10/22/2016</option>
@@ -36,7 +36,7 @@
             
             <select id="price" name="price" class="filter">
         
-            <option value="">---------------Recent----------------</option>
+            <option value="">Recent</option>
             <option value="02282017">02/28/2017</option>
             <option value="02262017">02/26/2017</option>
             <option value="01202017">01/20/2017</option>
@@ -109,6 +109,110 @@
                 </tr>
                 </table>
                 </div>
+            <hr>
+            
+            <div class="book">
+            <table class="orderDetail">
+            
+                <tr>
+                    <td class="coverImage"><img src="img/bookcovers/expectingtodie.jpg" class="bookCover"></td>
+                    <td colspan="3" class="description">
+                        <h4>Expecting to Die</h4>
+                        <h5>Lisa Jackson</h5>
+                        </td>
+                    
+                </tr>
+                <tr class="info">
+                
+                    <td colspan="4" class="genre">Qty: 2</td>
+                    
+                  
+                </tr>
+                <tr class="buy">
+                <td colspan="3" class="price"> $19.98</td>
+                
+                
+                </tr>
+                </table>
+                </div>
+            <hr>
+            
+            <div class="book">
+            <table class="orderDetail">
+            
+                <tr>
+                    <td class="coverImage"><img src="img/bookcovers/expectingtodie.jpg" class="bookCover"></td>
+                    <td colspan="3" class="description">
+                        <h4>Expecting to Die</h4>
+                        <h5>Lisa Jackson</h5>
+                        </td>
+                    
+                </tr>
+                <tr class="info">
+                
+                    <td colspan="4" class="genre">Qty: 2</td>
+                    
+                  
+                </tr>
+                <tr class="buy">
+                <td colspan="3" class="price"> $19.98</td>
+                
+                
+                </tr>
+                </table>
+                </div>
+            <hr>
+            
+            <div class="book">
+            <table class="orderDetail">
+            
+                <tr>
+                    <td class="coverImage"><img src="img/bookcovers/expectingtodie.jpg" class="bookCover"></td>
+                    <td colspan="3" class="description">
+                        <h4>Expecting to Die</h4>
+                        <h5>Lisa Jackson</h5>
+                        </td>
+                    
+                </tr>
+                <tr class="info">
+                
+                    <td colspan="4" class="genre">Qty: 2</td>
+                    
+                  
+                </tr>
+                <tr class="buy">
+                <td colspan="3" class="price"> $19.98</td>
+                
+                
+                </tr>
+                </table>
+                </div>
+            <hr>
+            
+            <div class="book">
+            <table class="orderDetail">
+            
+                <tr>
+                    <td class="coverImage"><img src="img/bookcovers/expectingtodie.jpg" class="bookCover"></td>
+                    <td colspan="3" class="description">
+                        <h4>Expecting to Die</h4>
+                        <h5>Lisa Jackson</h5>
+                        </td>
+                    
+                </tr>
+                <tr class="info">
+                
+                    <td colspan="4" class="genre">Qty: 2</td>
+                    
+                  
+                </tr>
+                <tr class="buy">
+                <td colspan="3" class="price"> $19.98</td>
+                
+                
+                </tr>
+                </table>
+                </div>
             
             <hr>
             
@@ -127,6 +231,7 @@
                    
         </main>
         
-        
+        </div>
+        <?php include("php/footer.php");?>
     </body>
 </html>
