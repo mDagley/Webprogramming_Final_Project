@@ -4,6 +4,8 @@
 <?php
         $testing = false;
 $con=mysqli_connect('localhost','root','root','book_store_3');
+
+
 if(mysqli_connect_errno())
 {
     echo "Failed to connect to MySQL: ".mysqli_connect_error();
