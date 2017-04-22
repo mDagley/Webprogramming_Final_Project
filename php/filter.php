@@ -9,7 +9,7 @@
     $start = !empty($_POST['page'])?$_POST['page']:0;
     $limit = 3;
 
-$whereSQL = $limitSql = '';
+$whereSql = $limitSql = '';
 $date = $_POST['releaseDate'];
 $genre = $_POST['genre'];
 $price = $_POST['price'];
@@ -18,11 +18,13 @@ $low = -1;
 $high = -1;
 $limitSql = " LIMIT ".$start.", ".$limit." ";
 $orderSql = " ORDER BY Title";
+$admin = $_POST['admin'];
     
 if(!empty($keywords)){
     $whereSql = " AND Title LIKE '%".$keywords."%' OR Description LIKE '%".$keywords."%' ";
     
 }
+      
 
 switch($price) {
     case "5":
@@ -64,7 +66,7 @@ if(($_POST['releaseDate']==="") && ($_POST['genre']==="") && ($low===-1) && ($hi
 if(!($_POST['releaseDate']==="") && !($_POST['genre']==="") && !($low===-1) && !($high===-1))
 {
     
-    if($date === 0){
+    if($date === "0"){
         $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate > CURDATE() AND Price BETWEEN ".$low." AND ".$high." AND GenreId = '".$genre."' ";
     }
     
@@ -75,7 +77,7 @@ if(!($_POST['releaseDate']==="") && !($_POST['genre']==="") && !($low===-1) && !
 
 //ONLY RELEASE DATE
 if(!($_POST['releaseDate']==="") && ($_POST['genre']==="") && ($low===-1) && ($high===-1)){
-    if($date === 0){
+    if($date === "0"){
         $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate > CURDATE() ";
     }
     
@@ -117,7 +119,7 @@ if(!($date==="") && !($genre==="") && ($low===-1) && ($high===-1)){
 
 //RELEASE DATE && HIGH PRICE
     if(!($_POST['releaseDate']==="") && ($_POST['genre']==="") && ($low===-1) && !($high===-1)){
-    if($date === 0){
+    if($date === "0"){
         $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate > CURDATE() AND Price <".$high." ";
     }
     
@@ -128,7 +130,7 @@ if(!($date==="") && !($genre==="") && ($low===-1) && ($high===-1)){
 
 //RELEASE DATE && LOW PRICE
         if(!($_POST['releaseDate']==="") && ($_POST['genre']==="") && !($low===-1) && ($high===-1)){
-    if($date === 0){
+    if($date === "0"){
         $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate > CURDATE() AND Price > ".$low." ";
     }
     
@@ -139,7 +141,7 @@ if(!($date==="") && !($genre==="") && ($low===-1) && ($high===-1)){
 
 //RELEASE DATE && HIGH PRICE && LOW PRICE
             if(!($_POST['releaseDate']==="") && ($_POST['genre']==="") && !($low===-1) && !($high===-1)){
-    if($date === 0){
+    if($date === "0"){
         $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate > CURDATE() AND Price BETWEEN ".$low." AND ".$high." ";
     }
     
@@ -165,7 +167,7 @@ if(($_POST['releaseDate']==="") && !($_POST['genre']==="") && !($low===-1) && !(
 
 //RELEASE DATE && HIGH PRICE && GENRE
     if(!($_POST['releaseDate']==="") && !($_POST['genre']==="") && ($low===-1) && !($high===-1)){
-    if($date === 0){
+    if($date === "0"){
         $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate > CURDATE() AND Price <".$high." AND GenreId = '".$genre."' ";
     }
     
@@ -176,7 +178,7 @@ if(($_POST['releaseDate']==="") && !($_POST['genre']==="") && !($low===-1) && !(
 
 //RELEASE DATE && LOW PRICE && GENRE
         if(!($_POST['releaseDate']==="") && !($_POST['genre']==="") && !($low===-1) && ($high===-1)){
-    if($date === 0){
+    if($date === "0"){
         $books = "SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE PublishDate > CURDATE() AND Price >".$low." AND GenreId = '".$genre."' ";
     }
     
@@ -219,6 +221,10 @@ $query = $con->query($books.$whereSql.$orderSql.$limitSql);
        
 
 <?php
+    
+     if($admin==='1'){
+                echo "<a href='updateBook.php'><input type='button' value='&#10010; NEW BOOK' class='new left'></a><a href='newAuthor.php'><input type='button' value='&#10010; NEW AUTHOR' class='new'></a><a href='newSubgenre.php'><input type='button' value='&#10010; NEW SUBGENRE' class='new right'></a>";
+            }
 while($row = $query->fetch_assoc()) {
                 $bookId = $row['Id'];
             $author= " SELECT   
@@ -247,7 +253,7 @@ FROM    books a
             ON b.SubGenreId = c.SunGenreId WHERE a.Id=$bookId";
             $subgenres=mysqli_query($con,$subgenre);
             echo"<div class='book'>";
-            echo "<table>";
+            echo "<table class='bookListing'>";
           
                 echo"<tr>";
                    echo"<td class='coverImage'><img src='img/bookcovers/".$row['CoverImage']."' class='bookCover'></td>";
@@ -281,8 +287,15 @@ FROM    books a
      
                 echo"</tr>";
                echo"<tr class='buy'>";
-                echo"<td colspan='3' class='price'>$".$row['Price']."</td>";
-               echo"<td class='addButton'><input type='button' value='+ CART' class='add'></td>";
+                if($admin== 1){
+                    echo "<td class='addButton'><input type='button' value='Edit' class='edit add'></td>";
+                    echo "<td class='addButton'><input type='button' value='Delete' class='delete add'></td>";
+                   echo "<td class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
+               }
+                else{
+                echo"<td colspan='3' class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
+                }
+               echo"<td class='addButton'><input type='button' value='&#10010; CART' class='add'></td>";
                 
                 echo"</tr>";
                 echo"</table>";

@@ -15,10 +15,11 @@
         var releaseDate = $('#releaseDate').val();
         var genre = $('#genre').val();
         var price = $('#price').val();
+        var admin = $('#admin').val();
         $.ajax({
             type: 'POST',
             url: 'php/filter.php',
-            data: 'page='+page_num+'&keywords='+keywords+'&releaseDate='+releaseDate+'&genre='+genre+'&price='+price,
+            data: 'page='+page_num+'&keywords='+keywords+'&releaseDate='+releaseDate+'&genre='+genre+'&price='+price+'&admin='+admin,
             
             success: function (html) {
                 $('#listing').html(html);
@@ -71,7 +72,10 @@
             <option value="25">Over $25</option>
         
         </select><br/>
-        
+                <?php
+                echo "<input type='hidden' name='admin' id='admin' value='".$admin."'>";
+               
+        ?>
             </form>
             
         </aside>

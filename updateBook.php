@@ -25,7 +25,7 @@
             <input type="text"      name="isbn"         placeholder="ISBN13"                class="medium"     id="isbn">
             <select name="binding" class="medium" id="binding">
                 <option value="">Binding</option>
-                <option value="hardback">Hardback</option>
+                <option value="hardback">Hardcover</option>
                 <option value="paperback">Paperback</option>
             </select>
             <input type="text"      name="title"        placeholder="Title"                 class="long"            id="title"   > 
