@@ -62,7 +62,7 @@ Current Status
 <ul><li><h7>&#9989;ADMIN:[Melissa]</h7></li>
 <ul><li>&#9989;List All Items[Melissa]</li>
 <li>Update Item[Melissa]</li>
-<li>Delete Item[Melissa]</li>
+<li>&#9989;Delete Item[Melissa]</li>
 <li>&#9989;Add Item[Melissa] ***Complete except for uploading the image file to the server***</li></ul></ul>
 <li><h6>&#9989;User Login[Melissa]</h6></li>
 <ul><li>&#9989;Verify Login Information[Piyush]</li>
