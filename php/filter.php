@@ -24,6 +24,8 @@ if(!empty($keywords)){
     $whereSql = " AND Title LIKE '%".$keywords."%' OR Description LIKE '%".$keywords."%' ";
     
 }
+
+$flagSql = " AND Flag = '0'";
       
 
 switch($price) {
@@ -187,10 +189,13 @@ if(($_POST['releaseDate']==="") && !($_POST['genre']==="") && !($low===-1) && !(
     }
         }
         
-      
+      if($admin==true){
+           $queryNum = $con->query($books.$whereSql.$orderSql);
+      }
 
-          $queryNum = $con->query($books.$whereSql.$orderSql);
-     
+      else{
+          $queryNum = $con->query($books.$whereSql.$flagSql.$orderSql);
+      }
  
       if($queryNum != 'false'){
           
@@ -214,8 +219,14 @@ if(($_POST['releaseDate']==="") && !($_POST['genre']==="") && !($low===-1) && !(
         'link_func' => 'searchFilter'
     );
     $pagination =  new Pagination($pagConfig);
-
-$query = $con->query($books.$whereSql.$orderSql.$limitSql);
+      
+      if($admin==true){
+          $query = $con->query($books.$whereSql.$orderSql.$limitSql);
+      }
+      
+      else{
+          $query = $con->query($books.$whereSql.$flagSql.$orderSql.$limitSql);
+      }
 
  if($query->num_rows > 0 && $query->num_rows != 'false'){ ?>
        
@@ -228,23 +239,6 @@ $query = $con->query($books.$whereSql.$orderSql.$limitSql);
 while($row = $query->fetch_assoc()) {
                 $bookId = $row['Id'];
             $author= " SELECT   
-        GROUP_CONCAT(c.FirstName, ' ', c.MiddleName, ' ', c.LastName SEPARATOR ', ') author
-FROM    books a 
-        INNER JOIN authorbook b
-            ON a.Id = b.BookId 
-        INNER JOIN author c
-            ON b.AuthorId = c.AuthorId WHERE a.Id=$bookId";
-            $authors=mysqli_query($con,$author);
-                
-                $genre= " SELECT   
-        Name
-FROM    genre a 
-        INNER JOIN books b
-            ON a.GenreId = b.GenreId 
-        WHERE b.Id=$bookId";
-            $genres=mysqli_query($con,$genre);
-                
-                $subgenre= " SELECT   
         GROUP_CONCAT(c.Name SEPARATOR ', ') subgenre
 FROM    books a 
         INNER JOIN subgenrebook b
@@ -258,7 +252,12 @@ FROM    books a
                 echo"<tr>";
                    echo"<td class='coverImage'><img src='img/bookcovers/".$row['CoverImage']."' class='bookCover'></td>";
                     echo"<td colspan='3' class='description'>";
+                if($row['Flag']=='1'){
+                    echo"<h4>".$row['Title']." [Deleted]</h4>";
+                }
+                else{
                         echo"<h4>".$row['Title']."</h4>";
+                }
                        echo"<h5>";
                             while($r = mysqli_fetch_array($authors)){
                                 echo $r['0'];
@@ -287,7 +286,7 @@ FROM    books a
      
                 echo"</tr>";
                echo"<tr class='buy'>";
-                if($admin== 1){
+                if($admin=='true'){
                     echo "<td class='addButton'><input type='button' value='Edit' class='edit add'></td>";
                     echo "<td class='addButton'><input type='button' value='Delete' class='delete add'></td>";
                    echo "<td class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
@@ -295,8 +294,12 @@ FROM    books a
                 else{
                 echo"<td colspan='3' class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
                 }
+                if($row['Qty']=='0'){
+                    echo "<td class='addButton'><input type='button' value='Out of Stock' class='add' disabled></td>";
+                }
+                else{
                echo"<td class='addButton'><input type='button' value='&#10010; CART' class='add'></td>";
-                
+                }
                 echo"</tr>";
                 echo"</table>";
                echo"</div>";

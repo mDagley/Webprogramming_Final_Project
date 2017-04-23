@@ -89,8 +89,14 @@
             include ('php/Pagination.php'); 
         //Records per page
            $limit = 3;
-
+            
+            if($admin===true){
            $queryNum = $con->query("SELECT COUNT(*) as postNum FROM books");
+            }
+            
+            else{
+                $queryNum = $con->query("SELECT COUNT(*) as postNum FROM books WHERE Flag='0'");
+            }
     $resultNum = $queryNum->fetch_assoc();
     $rowCount = $resultNum['postNum'];
             
@@ -102,9 +108,13 @@
     );
     $pagination =  new Pagination($pagConfig);
 
+            if($admin===true){
             
             $query = $con->query("SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books ORDER BY Title LIMIT $limit");
-           
+            }
+            else {
+                $query = $con->query("SELECT Id, Title, ISBN13, PublishDate, Publisher, Binding, Description, Qty, CoverImage, Price, Pages, Flag, GenreId FROM books WHERE Flag='0' ORDER BY Title LIMIT $limit");
+            }
             
              if($query->num_rows > 0){ ?>
         
@@ -143,7 +153,12 @@ FROM    books a
                 echo"<tr>";
                    echo"<td class='coverImage'><img src='img/bookcovers/".$row['CoverImage']."' class='bookCover'></td>";
                     echo"<td colspan='3' class='description'>";
+                if($row['Flag']=='1'){
+                    echo"<h4>".$row['Title']." [Deleted]</h4>";
+                }
+                else{
                         echo"<h4>".$row['Title']."</h4>";
+                }
                        echo"<h5>";
                             while($r = mysqli_fetch_array($authors)){
                                 echo $r['0'];
@@ -180,8 +195,12 @@ FROM    books a
                 else{
                 echo"<td colspan='3' class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
                 }
+                if($row['Qty']=='0'){
+                    echo "<td class='addButton'><input type='button' value='Out of Stock' class='add' disabled></td>";
+                }
+                else{
                echo"<td class='addButton'><input type='button' value='&#10010; CART' class='add'></td>";
-                
+                }
                 echo"</tr>";
                 echo"</table>";
                echo"</div>";
