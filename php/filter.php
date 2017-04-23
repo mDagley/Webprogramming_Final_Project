@@ -1,3 +1,4 @@
+<script src="js/delete.js"></script>
 <?php
   if(isset($_POST['page'])){
     //Include pagination class file
@@ -286,15 +287,16 @@ FROM    books a
      
                 echo"</tr>";
                echo"<tr class='buy'>";
-                if($admin=='true'){
+                if($admin==true){
                     echo "<td class='addButton'><input type='button' value='Edit' class='edit add'></td>";
-                    echo "<td class='addButton'><input type='button' value='Delete' class='delete add'></td>";
+                    
+                    echo "<td class='addButton'><input type='button' value='Delete' class='delete add' id='deleteButton' name='".$row['Id']."' onclick='deleteBook(this.name)'></td>";
                    echo "<td class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
                }
                 else{
                 echo"<td colspan='3' class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
                 }
-                if($row['Qty']=='0'){
+                if($row['Qty']=='0' || $row['Flag']=='1'){
                     echo "<td class='addButton'><input type='button' value='Out of Stock' class='add' disabled></td>";
                 }
                 else{

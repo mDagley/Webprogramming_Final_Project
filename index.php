@@ -8,6 +8,7 @@
         <link href="index.css" rel="stylesheet" type="text/css">
         <link href="favicon.ico" rel="shortcut icon" >
         <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/delete.js"></script>
      <script>
     function searchFilter(page_num){
         page_num = page_num?page_num:0;
@@ -189,13 +190,13 @@ FROM    books a
                echo"<tr class='buy'>";
                 if($admin=='true'){
                     echo "<td class='addButton'><input type='button' value='Edit' class='edit add'></td>";
-                    echo "<td class='addButton'><input type='button' value='Delete' class='delete add'></td>";
+                    echo "<td class='addButton'><input type='button' value='Delete' class='delete add' id='deleteButton' name='".$row['Id']."' onclick='deleteBook(this.name)'></td>";
                    echo "<td class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
                }
                 else{
                 echo"<td colspan='3' class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
                 }
-                if($row['Qty']=='0'){
+                if($row['Qty']=='0' || $row['Flag']=='1'){
                     echo "<td class='addButton'><input type='button' value='Out of Stock' class='add' disabled></td>";
                 }
                 else{
