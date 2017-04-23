@@ -25,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $description    = test_input($_POST['description1']);
     $subgenre       = test_input($_POST['subgenre1']);
     $subgenres      = explode(", ",$subgenre);
-    $img            = test_input($_POST['img1']);
-    $imgName        = explode(" ",$img);
+    $img            =test_input($_POST['img1']);
+    
    
 }
 
@@ -49,14 +49,15 @@ else if($testing == true){
     echo "Author: ".$author."\n";
     echo "Description: ".$description."\n";
     echo "Subgenre: ".$subgenre."\n";
-    echo "Image File: ".$imgName."\n";
+    echo "Image File: ".$img."\n";
+    
 }
 
 else  
 {   
     //Need to figure out multiple authors and subgenres
     $booksql = "INSERT INTO books (ISBN13, Binding, Title, PublishDate, Publisher, Pages, GenreId, Price, Qty, Description, CoverImage)
-                VALUES('".$isbn."', '".$binding."', '".$title."', '".$publish."', '".$publisher."', '".$pages."', '".$genre."', '".$price."', '".$qty."', '".$description."', '".$imgName[0]."');";
+                VALUES('".$isbn."', '".$binding."', '".$title."', '".$publish."', '".$publisher."', '".$pages."', '".$genre."', '".$price."', '".$qty."', '".$description."', '".$img."');";
     $con->query($booksql);
     echo $booksql;
     
@@ -74,7 +75,7 @@ else
     }
     
     foreach($subgenres as $s){
-    $subgenresql= "INSERT INTO subgenrebook (BookId, SunGenreId)
+    $subgenresql= "INSERT INTO subgenrebook (BookId, SubGenreId)
                 VALUES(".$book_id[0].", ".$s.");";
     $con->query($subgenresql);
         echo $subgenresql;
