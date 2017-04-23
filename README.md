@@ -78,9 +78,9 @@ Current Status
 	
  <h5>Color Scheme</h5>
 
-<ul><li><style color="#CAEBF2">Sky #CAEBF2 - Light Accent</style></li>
-<li><style color="#A9A9A9">Carbon #A9A9A9  - Dark Neutral</style></li>
-<li><style color="#FF3B3F">Watermelon #FF3B3F - Bright Accent</style></li>
-<li><style color="#EFEFEF">Neutral #EFEFEF  - Light Neutral</style></li>
+<ul><li>Sky #CAEBF2 - Light Accent</li>
+<li>Carbon #A9A9A9  - Dark Neutral</li>
+<li>Watermelon #FF3B3F - Bright Accent</li>
+<li>Neutral #EFEFEF  - Light Neutral</li>
 </ul>
 
