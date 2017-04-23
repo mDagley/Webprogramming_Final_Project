@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <script src="js/jquery-3.1.1.min.js"></script>
-	    <script src="js/validate.js"></script>
+	    <script src="js/validateBook.js"></script>
         <script>
          
             </script>
@@ -25,14 +25,14 @@
             <input type="text"      name="isbn"         placeholder="ISBN13"                class="medium"     id="isbn">
             <select name="binding" class="medium" id="binding">
                 <option value="">Binding</option>
-                <option value="hardback">Hardcover</option>
+                <option value="hardcover">Hardcover</option>
                 <option value="paperback">Paperback</option>
             </select>
-            <input type="text"      name="title"        placeholder="Title"                 class="long"            id="title"   > 
+            <input type="text"      name="title"        placeholder="Title"                 class="long"            id="title"   ><br/> 
             <label>Published Date </label>
             <input type="date"      name="publish"                                               class="empty btn"           id="publish">
             <input type="text"      name="publisher"           placeholder="Publisher"           class="medium"          id="publisher"> 
-            <input type="text"      name="pages"           placeholder="Pages"        class="short"           id="pages"> 
+            <input type="text"      name="pages"           placeholder="Pages"        class="short"           id="pages"> <br/>
             
             <select id="genre" name="genre" class="medium" id="genre">
         
@@ -46,7 +46,7 @@
             <input type="text"      name="qty"     placeholder="Qty"        class="short"            id="qty"><br/>
             
             
-            <select id="author" name="author" class="long" id="author">
+            <select id="author" name="author" class="long" id="author" multiple>
                 <option value="">Author</option>
             <?php 
                 $sql="SELECT * FROM author ORDER BY LastName";
@@ -63,7 +63,7 @@
                 $query="SELECT * FROM subgenre ORDER BY Name";
                 $result = $con->query($query);
                 while($row = $result->fetch_assoc() ){
-                    echo "<div class='checkbox'><input type='checkbox' name='subgenre' value='".$row['Id']."' >".$row['Name']." </div>";
+                    echo "<div class='checkbox'><input type='checkbox' name='subgenre' value='".$row['SunGenreId']."' >".$row['Name']." </div>";
                 }
             ?>
             
@@ -76,15 +76,6 @@
         </div>
         </div>
         <?php include("php/footer.php");?>
-        <script type="text/javascript">
-                var el = document.getElementById('bd');
-                el.onchange = function() {
-                    if (el.value === '') {
-                        el.classList.add("empty");
-                    } else {
-                        el.classList.remove("empty");
-                    }
-                }
-        </script>
+        
     </body>
 </html>
