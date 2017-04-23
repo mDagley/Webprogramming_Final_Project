@@ -65,7 +65,7 @@ else
     $result=mysqli_query($con, $id);
     $book_id = mysqli_fetch_row($result);
     echo $id;
-    echo $book_id;
+    echo $book_id[0];
     
     foreach($authors as $a){
     $authorsql ="INSERT INTO authorbook (BookId, AuthorId)
