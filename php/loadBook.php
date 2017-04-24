@@ -53,6 +53,7 @@ $price = $row['Price'];
 $qty = $row['Qty'];
 $description = $row['Description'];
 $img = $row['CoverImage'];
+$flag = $row['Flag'];
     
     
 //Print Form
@@ -85,7 +86,7 @@ echo "<div id='wrapper'>
             <input type='text'      name='qty'     placeholder='Qty'        class='short'   value='".$qty."'         id='qty'><br/>
             
             
-            <select id='author' name='author' class='long' id='author' multiple>
+            <select id='author' name='author' class='long' multiple>
                 <option value=''>Author</option>";
             
                 $sql='SELECT * FROM author ORDER BY LastName';
@@ -126,7 +127,19 @@ echo "<div id='wrapper'>
             <div class='thumbImage'><img src='img/bookcovers/".$img."' class='thumbImage'><br/><br/><label>".$img."</label></div>
             <br/>
             <input type='file' name='img'class='long' id='img' >
+            <label>Make Listing Available?</label>
+           <select id='flag' name='flag' class='short'>";
+           if($flag=='0'){
+               echo"<option value='0' selected>Yes</option>
+           <option value='1'>No</option>";
+           }
+    
+            else{
+                echo"<option value='0'>Yes</option>
+           <option value='1' selected>No</option>";
+            }
            
+           echo"</select>
             <input type='submit'    name='register' value='Submit'                        class='submit btn'          id='register' >  
             <input type='button'    name='clear'    value='Clear'                           class='clear btn'           id ='clear' > 
         

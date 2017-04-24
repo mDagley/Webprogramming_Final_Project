@@ -1,6 +1,33 @@
+
 $(document).ready(function() {
+    var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
+var id = getUrlParameter('id');
+
    
-    $("#binding").after('<span class="info">Please enter a 13 Digit ISBN </span>');
+    
+if(id!=undefined){
+    $("#id").val(id);
+    console.log("ID: "+id);
+    
+
+}
+
+   
+    
 	$("#isbn").focus(function(){
         $("#binding").next("span").remove();
          $("#isbn").prev("span").remove();
@@ -328,6 +355,8 @@ var subgenre = [];
             subgenre.push($(this).val());
         });
 var img = imgName;
+var flag = $("#flag").val();
+
 if (isbn == '' || binding == '' || publisher == '' || pages == '' || genre == '' || price == '' || qty == '' || author == '' || description == '' ) {
 alert("Please fill all fields...!!!!!!");
 }
@@ -353,6 +382,8 @@ alert("Please fill all fields...!!!!!!");
         description1: description,
         subgenre1: subgenre.join(", "),
         img1: img,
+        id1: id,
+        flag1: flag,
        
     }, 
         success: function(data) {

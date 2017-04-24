@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $subgenres      = explode(", ",$subgenre);
     $img            =test_input($_POST['img1']);
     $id             =test_input($_POST['id1']);
+    $flag           =test_input($_POST['flag1']);
     
    
 }
@@ -52,6 +53,7 @@ else if($testing == true){
     echo "Subgenre: ".$subgenre."\n";
     echo "Image File: ".$img."\n";
     echo "ID: ".$id;
+    echo "Flag: ".$flag;
     
 }
 
@@ -61,13 +63,13 @@ else
         
         if($img==''){
             $booksql = "UPDATE books SET ISBN13='".$isbn."', Binding='".$binding."', Title='".$title."', PublishDate='".$publish."', Publisher='".$publisher."', 
-                        Pages='".$pages."', GenreId='".$genre."', Price='".$price."', Qty='".$qty."', Description='".$description."'
+                        Pages='".$pages."', GenreId='".$genre."', Price='".$price."', Qty='".$qty."', Description='".$description."', Flag='".$flag."'
                         WHERE Id='".$id."'";
         }
         
         else{
             $booksql = "UPDATE books SET ISBN13='".$isbn."', Binding='".$binding."', Title='".$title."', PublishDate='".$publish."', Publisher='".$publisher."', 
-                        Pages='".$pages."', GenreId='".$genre."', Price='".$price."', Qty='".$qty."', Description='".$description."' CoverImage='".$img."'
+                        Pages='".$pages."', GenreId='".$genre."', Price='".$price."', Qty='".$qty."', Description='".$description."', Flag='".$flag."' CoverImage='".$img."'
                         WHERE Id='".$id."'";
         }
         
@@ -100,8 +102,9 @@ else
     }
         
     else{
-        $booksql = "INSERT INTO books (ISBN13, Binding, Title, PublishDate, Publisher, Pages, GenreId, Price, Qty, Description, CoverImage)
-                    VALUES('".$isbn."', '".$binding."', '".$title."', '".$publish."', '".$publisher."', '".$pages."', '".$genre."', '".$price."', '".$qty."', '".$description."', '".$img."');";
+        $booksql = "INSERT INTO books (ISBN13, Binding, Title, PublishDate, Publisher, Pages, GenreId, Price, Qty, Description, CoverImage, Flag)
+                    VALUES('".$isbn."', '".$binding."', '".$title."', '".$publish."', '".$publisher."', '".$pages."', '".$genre."', '".$price."', '".$qty."', '".$description."',
+                    '".$img."', '".$flag."');";
         $con->query($booksql);
         echo $booksql;
 
