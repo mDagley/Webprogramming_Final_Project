@@ -1,4 +1,5 @@
 <script src="js/delete.js"></script>
+<script src="js/edit.js"></script>
 <?php
   if(isset($_POST['page'])){
     //Include pagination class file
@@ -234,12 +235,29 @@ if(($_POST['releaseDate']==="") && !($_POST['genre']==="") && !($low===-1) && !(
 
 <?php
     
-     if($admin==='1'){
+     if($admin==true){
                 echo "<a href='updateBook.php'><input type='button' value='&#10010; NEW BOOK' class='new left'></a><a href='newAuthor.php'><input type='button' value='&#10010; NEW AUTHOR' class='new'></a><a href='newSubgenre.php'><input type='button' value='&#10010; NEW SUBGENRE' class='new right'></a>";
             }
 while($row = $query->fetch_assoc()) {
                 $bookId = $row['Id'];
             $author= " SELECT   
+        GROUP_CONCAT(c.FirstName, ' ', c.MiddleName, ' ', c.LastName SEPARATOR ', ') author
+FROM    books a 
+        INNER JOIN authorbook b
+            ON a.Id = b.BookId 
+        INNER JOIN author c
+            ON b.AuthorId = c.AuthorId WHERE a.Id=$bookId";
+            $authors=mysqli_query($con,$author);
+                
+                $genre= " SELECT   
+        Name
+FROM    genre a 
+        INNER JOIN books b
+            ON a.GenreId = b.GenreId 
+        WHERE b.Id=$bookId";
+            $genres=mysqli_query($con,$genre);
+                
+                $subgenre= " SELECT   
         GROUP_CONCAT(c.Name SEPARATOR ', ') subgenre
 FROM    books a 
         INNER JOIN subgenrebook b
@@ -288,9 +306,8 @@ FROM    books a
                 echo"</tr>";
                echo"<tr class='buy'>";
                 if($admin==true){
-                    echo "<td class='addButton'><input type='button' value='Edit' class='edit add'></td>";
-                    
-                    echo "<td class='addButton'><input type='button' value='Delete' class='delete add' id='deleteButton' name='".$row['Id']."' onclick='deleteBook(this.name)'></td>";
+                   echo "<td class='addButton'><input type='button' value='Edit' class='edit add' name='".$row['Id']."' onclick='editBook(this.name)'></td>";
+                   echo "<td class='addButton'><input type='button' value='Delete' class='delete add' id='deleteButton' name='".$row['Id']."' onclick='deleteBook(this.name)'></td>";
                    echo "<td class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
                }
                 else{
