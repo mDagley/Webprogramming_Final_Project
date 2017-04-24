@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $subgenre       = test_input($_POST['subgenre1']);
     $subgenres      = explode(", ",$subgenre);
     $img            =test_input($_POST['img1']);
+    $id             =test_input($_POST['id1']);
     
    
 }
@@ -50,37 +51,80 @@ else if($testing == true){
     echo "Description: ".$description."\n";
     echo "Subgenre: ".$subgenre."\n";
     echo "Image File: ".$img."\n";
+    echo "ID: ".$id;
     
 }
 
 else  
 {   
-    //Need to figure out multiple authors and subgenres
-    $booksql = "INSERT INTO books (ISBN13, Binding, Title, PublishDate, Publisher, Pages, GenreId, Price, Qty, Description, CoverImage)
-                VALUES('".$isbn."', '".$binding."', '".$title."', '".$publish."', '".$publisher."', '".$pages."', '".$genre."', '".$price."', '".$qty."', '".$description."', '".$img."');";
-    $con->query($booksql);
-    echo $booksql;
-    
-    $id = "SELECT Id FROM books WHERE ISBN13='".$isbn."'";
-    $result=mysqli_query($con, $id);
-    $book_id = mysqli_fetch_row($result);
-    echo $id;
-    echo $book_id[0];
-    
-    foreach($authors as $a){
-    $authorsql ="INSERT INTO authorbook (BookId, AuthorId)
-                VALUES(".$book_id[0].", ".$a.");";
-    $con->query($authorsql);
-        echo $authorsql;
+    if($id!=''){
+        
+        if($img==''){
+            $booksql = "UPDATE books SET ISBN13='".$isbn."', Binding='".$binding."', Title='".$title."', PublishDate='".$publish."', Publisher='".$publisher."', 
+                        Pages='".$pages."', GenreId='".$genre."', Price='".$price."', Qty='".$qty."', Description='".$description."'
+                        WHERE Id='".$id."'";
+        }
+        
+        else{
+            $booksql = "UPDATE books SET ISBN13='".$isbn."', Binding='".$binding."', Title='".$title."', PublishDate='".$publish."', Publisher='".$publisher."', 
+                        Pages='".$pages."', GenreId='".$genre."', Price='".$price."', Qty='".$qty."', Description='".$description."' CoverImage='".$img."'
+                        WHERE Id='".$id."'";
+        }
+        
+        $con->query($booksql);
+        echo $booksql;
+
+        
+        $clearSql = "DELETE FROM authorbook WHERE BookId='".$id."'";
+        $con->query($clearSql);
+        echo $clearSql;
+
+        foreach($authors as $a){
+        $authorsql ="INSERT INTO authorbook (BookId, AuthorId)
+                    VALUES(".$id.", ".$a.");";
+        $con->query($authorsql);
+            echo $authorsql;
+        }
+
+        $clearSql2 = "DELETE FROM subgenrebook WHERE BookId='".$id."'";
+        $con->query($clearSql2);
+        echo $clearSql2;
+        
+        foreach($subgenres as $s){
+        $subgenresql= "INSERT INTO subgenrebook (BookId, SubGenreId)
+                    VALUES(".$id.", ".$s.");";
+        $con->query($subgenresql);
+            echo $subgenresql;
+        
+        }
     }
-    
-    foreach($subgenres as $s){
-    $subgenresql= "INSERT INTO subgenrebook (BookId, SubGenreId)
-                VALUES(".$book_id[0].", ".$s.");";
-    $con->query($subgenresql);
-        echo $subgenresql;
+        
+    else{
+        $booksql = "INSERT INTO books (ISBN13, Binding, Title, PublishDate, Publisher, Pages, GenreId, Price, Qty, Description, CoverImage)
+                    VALUES('".$isbn."', '".$binding."', '".$title."', '".$publish."', '".$publisher."', '".$pages."', '".$genre."', '".$price."', '".$qty."', '".$description."', '".$img."');";
+        $con->query($booksql);
+        echo $booksql;
+
+        $id = "SELECT Id FROM books WHERE ISBN13='".$isbn."'";
+        $result=mysqli_query($con, $id);
+        $book_id = mysqli_fetch_row($result);
+        echo $id;
+        echo $book_id[0];
+
+        foreach($authors as $a){
+        $authorsql ="INSERT INTO authorbook (BookId, AuthorId)
+                    VALUES(".$book_id[0].", ".$a.");";
+        $con->query($authorsql);
+            echo $authorsql;
+        }
+
+        foreach($subgenres as $s){
+        $subgenresql= "INSERT INTO subgenrebook (BookId, SubGenreId)
+                    VALUES(".$book_id[0].", ".$s.");";
+        $con->query($subgenresql);
+            echo $subgenresql;
+        }
     }
-    
 }
 
 

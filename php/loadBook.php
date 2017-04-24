@@ -121,11 +121,12 @@ echo "<div id='wrapper'>
                 }
             
             echo"
-            <div style='clear: both;'></div>
+            <div class='clearfix'></div>
            </div>
             <div class='thumbImage'><img src='img/bookcovers/".$img."' class='thumbImage'><br/><br/><label>".$img."</label></div>
             <br/>
             <input type='file' name='img'class='long' id='img' >
+           
             <input type='submit'    name='register' value='Submit'                        class='submit btn'          id='register' >  
             <input type='button'    name='clear'    value='Clear'                           class='clear btn'           id ='clear' > 
         
