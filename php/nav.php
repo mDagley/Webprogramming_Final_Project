@@ -14,8 +14,7 @@ session_start();
         <nav>
             <ul> 
 
-              <li><a href="index.php" class="navLink">Home</a></li>
-   <?php echo '<li class="right"><a href="cart.php" class="navLink">Cart ('.$no_of_items.')</a></li>' ; ?>   
+                 <?php echo '<li class="right"><a href="cart.php" class="navLink">Cart ('.$no_of_items.')</a></li>' ; ?>   
 
                 <?php if($admin=='true'){
                             echo "<li><a href='index.php' class='navLink'>Home [Admin]</a></li>";
@@ -24,8 +23,7 @@ session_start();
                     echo "<li><a href='index.php' class='navLink'>Home</a></li>";
                 }
                ?>
-                <li class="right"><a href="cart.php" class="navLink">Cart (2)</a></li>
-                <li class="right"><a href="account.php" class="navLink">Account</a></li>
+                               <li class="right"><a href="account.php" class="navLink">Account</a></li>
                 <?php 
                 if(isset($_SESSION['User']))
                   { echo "<li class='right'><a href='account.php' class='navLink'>".$_SESSION['User']."</a></li>
