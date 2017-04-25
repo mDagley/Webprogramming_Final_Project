@@ -25,6 +25,26 @@
                 });
 
         }  
+            
+        function placeOrder(bookArray)
+            {
+                $.ajax({
+                    type: 'POST',
+                    url: 'php/order.php', 
+                    data: 'bookArray='+bookArray ,
+                    
+                    success: function (res) {
+                        console.log("this is from php : "+  res);
+                        window.location.reload(true);
+                        
+                    }
+                });
+
+        }  
+            
+         
+
+        
 
         </script>
     </head>
@@ -155,8 +175,8 @@
             </p>
             
         </aside>
-        
-            <input type="button" class="order btn" value="Place Order">
+        <?php
+            echo"<input type='button' class='order btn' value='Place Order' onclick='placeOrder()'>";?>
         
         </div>
         <?php include("php/footer.php");?>
