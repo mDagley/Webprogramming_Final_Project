@@ -1,5 +1,8 @@
 <?php 
 session_start();
+ $cookie_name = "book_id";
+ $data = json_decode($_COOKIE[$cookie_name]);
+ $no_of_items = sizeof( $data);
 ?>
 
 
@@ -8,8 +11,8 @@ session_start();
         </header>
         <nav>
             <ul> 
-                <li><a href="index.php" class="navLink">Home</a></li>
-                <li class="right"><a href="cart.php" class="navLink">Cart (2)</a></li>
+              <li><a href="index.php" class="navLink">Home</a></li>
+   <?php echo '<li class="right"><a href="cart.php" class="navLink">Cart ('.$no_of_items.')</a></li>' ; ?>   
                 <li class="right"><a href="account.php" class="navLink">Account</a></li>
                 <?php 
                 if(isset($_SESSION['User']))

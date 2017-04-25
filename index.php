@@ -26,6 +26,33 @@
             }
         });
     }
+
+    $('document').ready(function () { 
+        // $('.add').click(function(){
+        //     console.log("clicked !!");
+        // });
+
+
+    });
+
+    function btnClicked(bookId)
+    {
+         console.log(" in console bookid is : "+ bookId );
+           $.ajax({
+            type: 'POST',
+            url: 'cookieSetter.php',  // cookieUpdater.php
+            data: 'book_id='+bookId ,
+            
+            success: function (res) {
+                console.log("this is from php : "+  res);
+                window.location.reload(true);
+            }
+        });
+
+
+       
+  }
+
 </script>
     </head>
     
@@ -106,30 +133,32 @@
             while($row = $query->fetch_assoc()) {
                 $bookId = $row['Id'];
             $author= " SELECT   
-        GROUP_CONCAT(c.FirstName, ' ', c.MiddleName, ' ', c.LastName SEPARATOR ', ') author
-FROM    books a 
-        INNER JOIN authorbook b
-            ON a.Id = b.BookId 
-        INNER JOIN author c
-            ON b.AuthorId = c.AuthorId WHERE a.Id=$bookId";
+                                GROUP_CONCAT(c.FirstName, ' ', c.MiddleName, ' ', c.LastName SEPARATOR ', ') author
+                        FROM    books a 
+                                INNER JOIN authorbook b
+                                    ON a.Id = b.BookId 
+                                INNER JOIN author c
+                                    ON b.AuthorId = c.AuthorId WHERE a.Id=$bookId";
             $authors=mysqli_query($con,$author);
-                
-                $genre= " SELECT   
-        Name
-FROM    genre a 
-        INNER JOIN books b
-            ON a.GenreId = b.GenreId 
-        WHERE b.Id=$bookId";
+                                        
+            $genre= " SELECT   
+                                Name
+                        FROM    genre a 
+                                INNER JOIN books b
+                                    ON a.GenreId = b.GenreId 
+                                WHERE b.Id=$bookId";
             $genres=mysqli_query($con,$genre);
                 
-                $subgenre= " SELECT   
-        GROUP_CONCAT(c.Name SEPARATOR ', ') subgenre
-FROM    books a 
-        INNER JOIN subgenrebook b
-            ON a.Id = b.BookId 
-        INNER JOIN subgenre c
-            ON b.SubGenreId = c.SunGenreId WHERE a.Id=$bookId";
+            $subgenre= " SELECT   
+                                GROUP_CONCAT(c.Name SEPARATOR ', ') subgenre
+                        FROM    books a 
+                                INNER JOIN subgenrebook b
+                                    ON a.Id = b.BookId 
+                                INNER JOIN subgenre c
+                                    ON b.SubGenreId = c.SunGenreId WHERE a.Id=$bookId";
             $subgenres=mysqli_query($con,$subgenre);
+
+
             echo"<div class='book'>";
             echo "<table class='bookListing'>";
           
@@ -166,14 +195,14 @@ FROM    books a
                 echo"</tr>";
                echo"<tr class='buy'>";
                 echo"<td colspan='3' class='price'>[".$row['Binding']."] $".$row['Price']."</td>";
-               echo"<td class='addButton'><input type='button' value='+ CART' class='add'></td>";
+               echo"<td class='addButton'><input type='button' value='+ CART' class='add' onclick='btnClicked(".$bookId.")' ></td>";
                 
                 echo"</tr>";
                 echo"</table>";
                echo"</div>";
             
            echo"<hr>";
-            }
+             }
             ?>
             
       
