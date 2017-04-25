@@ -1,6 +1,10 @@
 <?php 
 session_start();
-$admin = false;
+
+ $cookie_name = "book_id";
+ $data = json_decode($_COOKIE[$cookie_name]);
+ $no_of_items = sizeof( $data);
+
 ?>
 
 
@@ -9,6 +13,10 @@ $admin = false;
         </header>
         <nav>
             <ul> 
+
+              <li><a href="index.php" class="navLink">Home</a></li>
+   <?php echo '<li class="right"><a href="cart.php" class="navLink">Cart ('.$no_of_items.')</a></li>' ; ?>   
+
                 <?php if($admin=='true'){
                             echo "<li><a href='index.php' class='navLink'>Home [Admin]</a></li>";
 }

@@ -29,6 +29,33 @@
             }
         });
     }
+
+    $('document').ready(function () { 
+        // $('.add').click(function(){
+        //     console.log("clicked !!");
+        // });
+
+
+    });
+
+    function btnClicked(bookId)
+    {
+         console.log(" in console bookid is : "+ bookId );
+           $.ajax({
+            type: 'POST',
+            url: 'cookieSetter.php',  // cookieUpdater.php
+            data: 'book_id='+bookId ,
+            
+            success: function (res) {
+                console.log("this is from php : "+  res);
+                window.location.reload(true);
+            }
+        });
+
+
+       
+  }
+
 </script>
     </head>
     
@@ -118,7 +145,6 @@
             
              if($query->num_rows > 0){ 
         
-
             
       include('php/printBooks.php');
         
