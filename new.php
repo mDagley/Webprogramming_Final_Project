@@ -6,7 +6,7 @@
         <title>Online Book Store</title>
         <link href="index.css" rel="stylesheet" type="text/css">
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
         <script src="js/jquery-3.1.1.min.js"></script>
 	    <script src="js/validate.js"></script>
         <script>
@@ -58,9 +58,9 @@
             <input type="text"      name="country"      placeholder="*Country"                                      id="country"> 
             <input type="tel"       name="phone"        placeholder="*Phone"                                        id="phone" title="Please enter a 10 digit phone number"> 
             <label>Birthday: </label>
-            <input type="date"      name="bd"                                               class="empty"           id="bd"><br/>
-            <input type="submit"    name="register" value="Register"                        class="submit"          id="register" >  
-            <input type="button"    name="clear"    value="Clear"                           class="clear"           id ="clear" > 
+            <input type="date"      name="bd"                                               class="empty btn"           id="bd"><br/>
+            <input type="submit"    name="register" value="Register"                        class="submit btn"          id="register" >  
+            <input type="button"    name="clear"    value="Clear"                           class="clear btn"           id ="clear" > 
         
         </form>
         </div>

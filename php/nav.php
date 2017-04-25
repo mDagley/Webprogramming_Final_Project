@@ -1,18 +1,30 @@
 <?php 
 session_start();
+
  $cookie_name = "book_id";
  $data = json_decode($_COOKIE[$cookie_name]);
  $no_of_items = sizeof( $data);
+
 ?>
 
 
 <header>
-    <a href="index.php"><img src="../BookStore/img/banner.jpg" class="bannerimage"></a>
+    <a href="index.php"><img src="img/banner.jpg" class="bannerimage"></a>
         </header>
         <nav>
             <ul> 
+
               <li><a href="index.php" class="navLink">Home</a></li>
    <?php echo '<li class="right"><a href="cart.php" class="navLink">Cart ('.$no_of_items.')</a></li>' ; ?>   
+
+                <?php if($admin=='true'){
+                            echo "<li><a href='index.php' class='navLink'>Home [Admin]</a></li>";
+}
+                else{
+                    echo "<li><a href='index.php' class='navLink'>Home</a></li>";
+                }
+               ?>
+                <li class="right"><a href="cart.php" class="navLink">Cart (2)</a></li>
                 <li class="right"><a href="account.php" class="navLink">Account</a></li>
                 <?php 
                 if(isset($_SESSION['User']))
