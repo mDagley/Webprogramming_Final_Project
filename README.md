@@ -68,8 +68,8 @@ Current Status
 <ul><li>&#9989;Verify Login Information[Piyush]</li>
 <li>&#9989;Start new user session[Piyush]</li></ul>
 <li><h6>&#9989;Checkout(Do Not Need to Process Payment)[Melissa]</h6></li>
-<ul><li>Add items to cart[Piyush]</li>
-<li>Show total for cart items[Piyush]</li>
+<ul><li>&#9989;Add items to cart[Piyush]</li>
+<li>&#9989;Show total for cart items[Piyush]</li>
 <li>Update inventory when purchases are made[Piyush]</li></ul>
 <li><h6>&#9989;Order History[Melissa]</h6></li>
 <ul><li>Load Order History from database[Melissa]</li>
