@@ -4,6 +4,20 @@ session_start();
  $cookie_name = "book_id";
  $data = json_decode($_COOKIE[$cookie_name]);
  $no_of_items = sizeof( $data);
+include('php/connect.php');
+$sql = "SELECT users.Email, admin.userId FROM users INNER JOIN admin ON users.UserId = admin.userId WHERE users.Email='".$_SESSION['User']."'";
+ $result = mysqli_query($con, $sql);
+while($r = mysqli_fetch_array($result)){
+              
+    if ($r['Email'] == $_SESSION['User'])
+    {
+        $admin = true;
+    }
+else{
+    $admin = false;
+        }
+    
+}
 
 ?>
 

@@ -324,7 +324,7 @@ $(document).ready(function()
 });
     
 $("#register").click(function() {
-    event.preventDefault();
+    //event.preventDefault();
 var email = $("#email").val();
 var password = $("#password").val();
 var cpassword = $("#vpassword").val();
@@ -349,7 +349,7 @@ alert("Your passwords don't match. Try again?");
     
     else {
     $.ajax({
-        url: '../php/register.php',
+        url: '../BookStore/php/register.php',
         type: "POST",
         async: false,
         data: {

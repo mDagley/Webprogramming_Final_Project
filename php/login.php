@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 }
 // Database connection 
 include("connect.php");
-    $query = "SELECT * FROM users where Email='$email' ";
+    $query = "SELECT * FROM users WHERE Email='".$email."' ";
     
     //$query = "SELECT * FROM users" ;
     $result = mysqli_query($con, $query);
@@ -24,18 +24,21 @@ include("connect.php");
         
         while($row = mysqli_fetch_array($result)) 
         {
-           if(password_verify( $password, $row['Password']))
-           {// echo "matched";
+           if(password_verify($password, $row['Password']))
+           {//echo "<p>matched</p>";
            $_SESSION['User'] = $row['Email'];
            }
-            else
+            else{
             echo "nope!";
+            echo "<br/> Email: ".$email;
+            echo "<br/> Password: ".$password;
+            echo "<br/> Stored Password: ".$row['Password'];            }
            
         }
-        
+   
          
     }
-      
+         
     header('Location:../index.php');
 
 ?>

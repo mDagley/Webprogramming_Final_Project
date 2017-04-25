@@ -82,7 +82,7 @@ FROM    books a
                     echo "<td class='addButton'><input type='button' value='Out of Stock' class='add' disabled></td>";
                 }
                 else{
-               echo"<td class='addButton'><input type='button' value='&#10010; CART' class='add'></td>";
+               echo"<td class='addButton'><input type='button' value='&#10010; CART' class='add' onclick='btnClicked(".$bookId.")'></td>";
                 }
                 echo"</tr>";
                 echo"</table>";

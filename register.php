@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
    
 }
 
-    $password   = password_hash ($password ,PASSWORD_DEFAULT );
+    $password   = password_hash ($password , PASSWORD_DEFAULT);
 
 
 if (mysqli_connect_errno())

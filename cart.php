@@ -41,7 +41,7 @@
  <!--my code ..-->
            <?php
                 include ('php/connect.php');
-                include ('php/Pagination.php'); 
+                
                
                 $query =  $con->query("SELECT *  FROM books ORDER BY Title");
                  if($query->num_rows > 0)
