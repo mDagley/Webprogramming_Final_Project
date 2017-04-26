@@ -65,8 +65,8 @@ echo "<div id='wrapper'>
             <input type='text'      name='isbn'         placeholder='ISBN13'     value='".$isbn."'           class='medium'     id='isbn'>
             <select name='binding' class='medium' id='binding'>
                 <option value=''>Binding</option>
-                <option value='hardcover'"; if($binding == 'hardcover'){ echo" selected='selected'";} echo">Hardcover</option>
-                <option value='paperback'"; if($binding == 'paperback'){ echo" selected='selected'";} echo">Paperback</option>
+                <option value='Hardcover'"; if($binding == 'Hardcover'){ echo" selected='selected'";} echo">Hardcover</option>
+                <option value='Paperback'"; if($binding == 'Paperback'){ echo" selected='selected'";} echo">Paperback</option>
             </select>
             <input type='text'      name='title'        placeholder='Title'   value='".$title."'              class='long'            id='title'   ><br/> 
             <label>Published Date </label>

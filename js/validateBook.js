@@ -310,7 +310,7 @@ if(id!=undefined){
 });
   var imgName ="";
 $('#img').change(function () {
-    sendFile(this.files[0])
+    //sendFile(this.files[0])
     imgName = this.files[0].name;
                  });
 
@@ -357,7 +357,7 @@ var subgenre = [];
 var img = imgName;
 var flag = $("#flag").val();
 
-if (isbn == '' || binding == '' || publisher == '' || pages == '' || genre == '' || price == '' || qty == '' || author == '' || description == '' ) {
+if (isbn == '' || binding == '' || publisher == '' || pages == '' || genre == '' || price == '' || qty == '' || author == '' || description == '' || title=='') {
 alert("Please fill all fields...!!!!!!");
 }
 
@@ -404,7 +404,7 @@ alert("Please fill all fields...!!!!!!");
         $("#title").removeClass("ok");
         $("#binding").removeClass("ok");
         $("#isbn").removeClass("ok");
-            
+        window.location.reload(true);
             }
       //*  error: function(){
        // alert("Error Function");

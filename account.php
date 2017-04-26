@@ -19,7 +19,7 @@
             data: 'user='+user+'&id='+id,
             
             success: function (html) {
-                $('#main').html(html);
+                $('#history').html(html);
                 
             }
         });
@@ -55,29 +55,8 @@
             
         echo"</aside>
         
-        <main>
-            <h2>Order Details</h2>
-            <h4>4/25/2017</h4>
-            <p>
-                Status: Processing <br/>
-                Shipping Date: Not Yet Shipped <br/>
-                Delivery Date: Not Yet Shipped
-            </p>
-            
-            
-            <hr>
-            
-            <p class='total'>
-            
-            Subtotal: $29.15 <br/>
-            Tax: $2.40 <br/>
-            Shipping: $3.99 <br/>
-            
-            </p>
-            <p class='total bold'>
-            Total: $35.54
-            </p>
-            
+        <main id='history'>
+            <p>Please Select An Order.</p>
                
                    
         </main>

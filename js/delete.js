@@ -12,10 +12,9 @@ console.log("ID: "+id);
 
 
         }, 
-            success: function(data) {
-                console.log(data);
-
-                }
+            success: function(data){
+            window.location.reload(true);
+}
           
         });
 }

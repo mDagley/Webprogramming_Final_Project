@@ -26,12 +26,12 @@
 
         }  
             
-        function placeOrder(bookArray)
+        function placeOrder()
             {
                 $.ajax({
                     type: 'POST',
                     url: 'php/order.php', 
-                    data: 'bookArray='+bookArray ,
+                   
                     
                     success: function (res) {
                         console.log("this is from php : "+  res);

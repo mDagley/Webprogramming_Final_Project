@@ -40,6 +40,7 @@ $cookie_name = "book_id";
                  }
                  else {echo "nope \n";
                        echo $row['Id'];
+                       var_dump($data);
                       }
      
              }

@@ -52,7 +52,8 @@ FROM    books a
                     
                echo"</tr>";
                echo"<tr class='info'>";
-                    echo"<td colspan='2' class='date'>".$row['PublishDate']."</td>";
+                    $publishDate = new DateTime($row['PublishDate']);
+                    echo"<td colspan='2' class='date'>".$publishDate->format('F Y')."</td>";
                    echo"<td colspan='2' class='genre'>";
                 
                     while($rw = mysqli_fetch_array($genres)){

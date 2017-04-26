@@ -69,7 +69,7 @@ else
         
         else{
             $booksql = "UPDATE books SET ISBN13='".$isbn."', Binding='".$binding."', Title='".$title."', PublishDate='".$publish."', Publisher='".$publisher."', 
-                        Pages='".$pages."', GenreId='".$genre."', Price='".$price."', Qty='".$qty."', Description='".$description."', Flag='".$flag."' CoverImage='".$img."'
+                        Pages='".$pages."', GenreId='".$genre."', Price='".$price."', Qty='".$qty."', Description='".$description."', Flag='".$flag."', CoverImage='".$img."'
                         WHERE Id='".$id."'";
         }
         
